@@ -1,0 +1,730 @@
+html{
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f8f9fa;
+    color: #222;
+}
+
+header {
+    background-image: linear-gradient(to right, rgb(255, 248, 143), #fff);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 0 0 10px 0;
+    height: 80px;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px 0 30px;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a237e;
+}
+.logo span{
+ cursor: pointer;
+font-family: 'Rangile', sans-serif;
+font-size: 1.2em;
+}
+.logo img {
+    cursor: pointer;
+    height: 40px;
+    margin-right: 12px;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+.nav-links ul li a {
+    display: flex;
+    color: #222;
+    font-size: 1.2em;
+    font-weight: 500;
+    position: relative;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.2s;
+    overflow: hidden;
+}
+
+.nav-links ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #a0d806;
+    transition: width 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+.nav-links ul li a:hover {
+    color: #3bb304;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+.nav-links ul li a:hover {
+    color: #1a237e;
+}
+.hero {
+    background-image: url("../images/background_stamp.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 120px;
+    padding: 80px 30px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative; 
+    z-index: 1; 
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;   
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.hero-content {
+    padding: 80px;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: bolder;
+    margin-bottom: 18px;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+.hero-content i {
+    font-size: 2em;
+    color: #fff;
+    width: auto;
+    margin-top: 1em;
+}
+.stamp-info-highlight {
+    display: block;
+    background: linear-gradient(90deg, #eaffd0 60%, #fff 100%);
+    color: #1a237e;
+    font-size: 1.18em;
+    font-weight: 500;
+     font-family: 'Texturina', sans-serif;                           
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(26,35,126,0.06);
+    padding: 18px 22px 14px 22px;
+    margin: 32px auto 38px auto;
+    max-width: 700px;
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+
+.stamp-info-highlight i {
+    color: #009600;
+    font-size: 1.4em;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.stamp-info-highlight strong {
+    color: #009600;
+    font-size: 1.08em;
+    margin-right: 6px;
+}
+
+.stamp-info-detail {
+    display: block;
+    color: #444;
+    font-size: 1em;
+    margin-top: 8px;
+}
+/**.stamp-item i{
+    font-size: 1.7em;
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(to right, rgb(243, 129, 129),white, rgb(51, 255, 0));
+}**/
+#price{
+    color: black;
+    font-weight: 800;
+}
+#price-value{
+    color: rgb(161, 0, 81);
+}
+/* Stamps Grid */
+.correction_stamps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.stamp-item {
+    background: #fff;
+    margin-top: 90px;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    padding: 24px 16px 32px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.stamp-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.13);
+}
+
+.stamp-item h2 {
+    color: #070d58;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-family: 'Noto Serif Tamil', sans-serif;
+}
+
+.stamp-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    border: 2px solid #eaffd0;
+    background: #f8f9fa;
+}
+
+.stamp-item span {
+    font-size: 1.1em;
+    color: #009600;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.stamp-item button {
+    background: #ffd900;
+    color: #fff;
+    border: none;
+    border-radius: 22px;
+    padding: 10px 28px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: auto;
+    box-shadow: 0 2px 8px rgba(26,35,126,0.08);
+}
+
+.stamp-item button:hover {
+    background: #bfdd54;
+    color: #eaffd0;
+    transform: translateY(-2px) scale(1.04);
+}
+.whatsapp-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2000; /* Make sure it's above other content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-float {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #1DA851;
+}
+
+.whatsapp-float i.bi-whatsapp {
+    font-size: 2.2em;
+    line-height: 1;
+}
+/* MODAL STYLES */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1001; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+}
+.modal.active {
+    display: flex; /* Only show as flex when the 'active' class is added by JS */
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Auto margin with flex centers it vertically */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Max width for larger screens */
+    text-align: center;
+    position: relative; /* For positioning the close button */
+}
+
+.modal-content h2 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.modal-content p strong {
+    color: #28a745; /* Highlight product name in green */
+}
+
+.modal-content .small-text {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 20px;
+}
+/* --- Styles for the EMAIL ORDER FORM inside the modal --- */
+#orderEmailForm {
+    display: flex; /* Makes elements stack vertically */
+    flex-direction: column;
+    gap: 15px; /* Space between input fields and buttons */
+    margin-top: 25px; /* Space above the form */
+    margin-bottom: 25px; /* Space below the form before WhatsApp button */
+}
+
+/* Styling for ALL input types (text, tel, email) and the textarea */
+#orderEmailForm input[type="text"],
+#orderEmailForm input[type="tel"],
+#orderEmailForm input[type="email"],
+#orderEmailForm textarea {
+    padding: 12px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 1em; /* Readable font size */
+    width: calc(100% - 24px); /* Full width minus padding for box-sizing */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-family: Arial, sans-serif; /* Consistent font with body */
+    color: #333; /* Darker text color */
+}
+
+/* Specific styling for the textarea */
+#orderEmailForm textarea {
+    resize: vertical; /* Allow users to resize vertically, but not horizontally */
+    min-height: 80px; /* Minimum height to make it visible */
+    max-height: 200px; /* Optional: Set a maximum height to prevent excessive resizing */
+}
+
+/* Focus styles for all input fields and textarea */
+#orderEmailForm input:focus,
+#orderEmailForm textarea:focus {
+    outline: none; /* Remove default outline */
+    border-color: #007bff; /* Highlight border with a blue color on focus */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle blue glow on focus */
+}
+
+/* Style for the "Send Order Details to Email" button */
+.email-order-button {
+    background-color: #007bff; /* A nice blue for the email button */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-flex; /* Allows icon and text to sit together */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Make the button full width of the form */
+    box-sizing: border-box;
+}
+
+.email-order-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.email-order-button i {
+    font-size: 1.5em; /* Icon size within the button */
+}
+
+/* Style for the "Chat on WhatsApp" button (reiterated for completeness) */
+.whatsapp-button {
+    background-color: #25D366; /* WhatsApp brand green */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Make the button full width of the modal content */
+    box-sizing: border-box;
+    margin-top: 15px; /* Space above WhatsApp button */
+}
+
+.whatsapp-button:hover {
+    background-color: #1DA851;
+    transform: translateY(-2px);
+}
+
+.whatsapp-button i.bi-whatsapp {
+    font-size: 1.5em;
+}
+  .message-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.5s ease-in-out;
+        }
+        .message-container.show {
+            opacity: 1; /* Show when .show class is added */
+        }
+        .message-container.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .message-container.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+           .message-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.5s ease-in-out;
+        }
+        .message-container.show {
+            opacity: 1; /* Show when .show class is added */
+        }
+        .message-container.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .message-container.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+/* --- Media Queries (ensure responsiveness) --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 10px 0 10px;
+    }
+    .logo {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    .logo img {
+        height: 36px;
+        margin-right: 8px;
+    }
+    .logo span {
+        display: none;
+    }
+    .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .nav-links ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 18px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .nav-links ul li {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px 3% 0 3%;
+    }
+    .logo {
+        margin-bottom: 6px;
+    }
+    .nav-links ul {
+        gap: 10px;
+    }
+    .hero {
+        padding: 40px 3%;
+    }
+    /* ...existing code... */
+}
+
+@media (max-width: 900px) {
+    .hero {
+        padding: 60px 10px;
+    }
+    .hero-content {
+        padding: 40px 10px;
+        width: 95%;
+        max-width: 700px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 30px 3%;
+        min-height: 80px;
+    }
+    .hero-content {
+        padding: 18px 2%;
+        width: 100%;
+        max-width: 100%;
+    }
+    .hero-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    .hero-content p {
+        font-size: 1em;
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero {
+        padding: 15px 1%;
+        min-height: 60px;
+    }
+    .hero-content {
+        padding: 8px 1%;
+    }
+    .hero-content h1 {
+        font-size: 1.1rem;
+    }
+    .hero-content p {
+        font-size: 0.95em;
+    }
+}
+
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+}
+
+.stamp-container {
+  max-width: 1100px;
+  margin: 2em auto;
+  padding: 1em;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.stamp-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+}
+
+.stamp-card {
+  background: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  padding: 1em;
+  width: 320px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.stamp-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.stamp-card img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1em;
+  object-fit: contain;
+}
+
+.stamp-card h3 {
+  font-size: 1.2em;
+  margin: 0.5em 0 0.3em 0;
+  text-align: center;
+}
+
+.stamp-card p {
+  font-size: 1em;
+  margin: 0.3em 0 0.7em 0;
+  text-align: center;
+}
+
+.stamp-card .order-btn {
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(34, 139, 34, 0.08);
+  margin-top: 0.5em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.stamp-card .order-btn:hover,
+.stamp-card .order-btn:focus {
+  background: #128c7e;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(34, 139, 34, 0.15);
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .stamp-list {
+    gap: 1em;
+  }
+  .stamp-card {
+    width: 45%;
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .stamp-container {
+    padding: 0.5em;
+  }
+  .stamp-list {
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+  }
+  .stamp-card {
+    width: 98%;
+    min-width: 0;
+    padding: 0.7em;
+  }
+  .stamp-card img {
+    max-width: 100%;
+  }
+}
+
+/* Optional: Responsive heading and text */
+.stamp-container h1,
+.stamp-container h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+@media (max-width: 400px) {
+  .stamp-card {
+    padding: 0.4em;
+  }
+  .stamp-container h1,
+  .stamp-container h2 {
+    font-size: 1.1em;
+  }
+}

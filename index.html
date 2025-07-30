@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOVOSTELLA Technologies ltd</title>
-    <link rel="stylesheet" href="./css/index.css?v=31.0">
+    <link rel="stylesheet" href="./css/index.css?v=50.0">
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.cdnfonts.com/css/agbalumo" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/rangile" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">
+            <div id="novostella-logo" class="logo">
                 <img src="images/logo.png" alt="Novostella Logo">
                 <span>NOVOSTELLA Technologies Ltd</span>
             </div>
@@ -23,146 +25,408 @@
                     <li><a href="#location">Location</a></li>
                 </ul>
             </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
         </nav>
     </header>
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>WELCOME TO, <span class="Welcome-design">Novostella Technologies Ltd</span></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad beatae consequuntur iste necessitatibus corrupti! Debitis nemo, voluptatum voluptas molestiae hic, molestias ea assumenda harum optio mollitia iure quos exercitationem eum? </p>
+            <p>Novostella Technologies limited is a company that is specialised to give you with access to all computer and tech services that we encounter in our daily schedule of the day. Visit us on <a href="https://novostellatechnologies.infy.uk" style="color: rgb(255, 159, 32); text-decoration: none;">NST</a></p>
             <a href="#services" class="cta-btn">Get started<i class="bi bi-arrow-right-circle-fill"></i></a>
         </div>
     </section>
     <section class="products" id="products">
-       
+        
     </section>
    <section class="features" id="services">
-  <h2>Our Services</h2>
-  <div class="service-grid">
-    <div class="service-card">
-      <img src="./images/cachet.png" alt="Stamp and logo">
-      <img src="./images/catchet 2.png" alt="catchet">
-      <span>Stamp and Logo</span>
-      <p>Custom stamps and logos designed and printed professionally for official use. <strong class="stamp_examples">eg: business stamps, bank stamps, etc</strong></p>
-    </div>
-    <div class="service-card">
-      <img src="./images/printer.png" alt="Printing services">
-      <span>Printing Services</span>
-      <p>High-quality printing for documents, flyers, posters, and more at affordable prices In addition to that we also <strong class="printer_reset">reset your printers for those indeed..</strong></p>
-    </div>
-    <div class="service-card">
-      <img src="./images/banner.png" alt="Banner sticker printing">
-      <span>Banner sticker printing</span>
-      <p>High-quality printing for banners and stickers at affordable prices.</p>
-    </div>
-    <div class="service-card">
-      <img src="./images/card.png" alt="ID Cards">
-      <span>ID Cards</span>
-      <p>Design and production of professional ID cards for schools, businesses, and special events. <strong class="id_card_examples">All depend on what you wish.</strong></p>
-    </div>
-    <div class="service-card">
-      <img src="./images/networking.png" alt="Networking">
-      <span>Networking</span>
-      <p>We install and manage reliable networks for homes, schools, and organizations.</p>
-      <p><strong class="networking_services">Some key networking services are:</strong></p>
-      <ul class="networking_services_links">
-        <li>Wi-Fi extension</li>
-        <li>CCTV cameras installation</li>
-        <li>LAN Installation</li>
-      </ul>
-    </div>
-    <div class="service-card">
-      <img src="./images/cctv.png" alt="cctv installation">
-      <span>CCTV installation</span>
-      <p>High-quality installation of CCTV systems for homes and businesses(Factories, schools, hospitals and also security agencies etc.....).</p>
-    </div>
-    <div class="service-card">
-      <img src="./images/t-shirt.png" alt="T-shirt Sticker Printing">
-      <span>Sticker on T-shirt Printing</span>
-      <p>Creative sticker printing on T-shirts, uniforms, and custom wearables. <strong class="t-shirts">eg: on funeral t-shirts, wedding t-shirts, events t-shirts, etc..... </strong></p>
-    </div>
-    <div class="service-card">
-      <img src="./images/video.png" alt="Audio and video production">
-      <span>Audio Production</span>
-      <p>Professional audio and video recording, editing, and production services.</p>
-    </div>
-    <div class="service-card">
-      <img src="./images/video_prep.png" alt="Computer repairing Services">
-      <span>Video production</span>
-      <p>We prepare for you outstanding videos for your events and other different fields like songs, films. </p>
-      <p id="video_services"><strong class="networking_services">video services </strong> <i class="bi bi-arrow-down-circle"></i></p>
-      <ul class="videos_links">
-        <li>Video recording</li>
-        <li>Live streaming</li>
-      </ul>
-
-    </div>
-     <div class="service-card">
-      <img src="./images/repair.jpeg" alt="Computer repairing Services">
-      <span>Computer repair</span>
-      <p>Professional computer repair services including troubleshooting, hardware replacement, and software installation. </p>
-    </div>
-     <div class="service-card" style=" background: #f8f9fa; border: none; box-shadow: none;">
-      <img src="./images/logo.png" alt="Novostella Technologies Ltd">
-      <span class="novos">AT "Novostella Technologies Ltd". We are there for you</span>
-    </div>
-     <div class="service-card" style=" background: #f8f9fa; border: none; box-shadow: none;">
-      <img src="./images/welcome.png" alt="" style="width: 100%; height: auto;">
-    </div>
-  </div>
+     <h2>Our Services</h2>
+     <div class="service-grid">
+       <div class="service-card" data-title="Stamp and Logo" data-img="./images/cachet.png" data-details="Custom stamps and logos designed and printed professionally for official use. eg: business stamps, bank stamps, etc">
+         <img src="./images/cachet.png" alt="Stamp and logo">
+         <span>Stamp and Logo</span>
+         <p>Custom stamps and logos designed and printed professionally for official use. <strong class="stamp_examples">eg: business stamps, bank stamps, etc</strong></p>
+         <button id="stamp-direct-button">view more <i class="bi bi-arrow-right"></i></button>
+       </div>
+       <div class="service-card" data-title="Printing Services" data-img="./images/printer.png" data-details="High-quality printing for documents, flyers, posters, and more at affordable prices. We also reset your printers for those in need.">
+         <img src="./images/printer.png" alt="Printing services">
+         <span>Printing Services</span>
+         <p>High-quality printing for documents, flyers, posters, and more at affordable prices In addition to that we also <strong class="printer_reset">reset your printers for those indeed..</strong></p>
+         <button class="whatsapp-order-btn" data-service="Printing Services">Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+       <div class="service-card" data-title="Banner sticker printing" data-img="./images/banner.png" data-details="High-quality printing for banners and stickers at affordable prices.">
+         <img src="./images/banner.png" alt="Banner sticker printing">
+         <span>Banner sticker printing</span>
+         <p>High-quality printing for banners and stickers at affordable prices.</p>
+         <button class="whatsapp-order-btn" data-service="Banner sticker printing">Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+       <div class="service-card" data-title="ID Cards" data-img="./images/card.png" data-details="Design and production of professional ID cards for schools, businesses, and special events. All depend on what you wish.">
+         <img src="./images/card.png" alt="ID Cards">
+         <span>ID Cards</span>
+         <p>Design and production of professional ID cards for schools, businesses, and special events. <strong class="id_card_examples">All depend on what you wish.</strong></p>
+         <button class="whatsapp-order-btn" data-service="ID Cards">Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+       <div class="service-card" data-title="Networking" data-img="./images/networking.png" data-details="We install and manage reliable networks for homes, schools, and organizations. Some key networking services are: Wi-Fi extension, CCTV cameras installation, LAN Installation.">
+         <img src="./images/networking.png" alt="Networking">
+         <span>Networking</span>
+         <p>We install and manage reliable networks for homes, schools, and organizations.</p>
+         <p><strong class="networking_services">Some key networking services are:</strong></p>
+         <ul class="networking_services_links">
+           <li>Wi-Fi extension</li>
+           <li>CCTV cameras installation</li>
+           <li>LAN Installation</li>
+         </ul>
+         <button class="whatsapp-order-btn" data-service="Networking">Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+       <div class="service-card" data-title="CCTV installation" data-img="./images/cctv.png" data-details="High-quality installation of CCTV systems for homes and businesses (Factories, schools, hospitals and also security agencies etc...).">
+         <img src="./images/cctv.png" alt="cctv installation">
+         <span>CCTV installation</span>
+         <p>High-quality installation of CCTV systems for homes and businesses(Factories, schools, hospitals and also security agencies etc.....).</p>
+         <button class="whatsapp-order-btn" data-service="CCTV installation">Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+       <div class="service-card" data-title="Sticker on T-shirt Printing" data-img="./images/t-shirt.png" data-details="Creative sticker printing on T-shirts, uniforms, and custom wearables. eg: on funeral t-shirts, wedding t-shirts, events t-shirts, etc.....">
+         <img src="./images/t-shirt.png" alt="T-shirt Sticker Printing">
+         <span>Sticker on T-shirt Printing</span>
+         <p>Creative sticker printing on T-shirts, uniforms, and custom wearables. <strong class="t-shirts">eg: on funeral t-shirts, wedding t-shirts, events t-shirts, etc..... </strong></p>
+         <button class="whatsapp-order-btn" data-service="Sticker on T-shirt Printing"> Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+       <div class="service-card" data-title="Audio Production" data-img="./images/video.png" data-details="Professional audio and video recording, editing, and production services.">
+         <img src="./images/video.png" alt="Audio and video production">
+         <span>Audio Production</span>
+         <p>Professional audio and video recording, editing, and production services.</p>
+         <button class="whatsapp-order-btn" data-service="Audio Production">Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+       <div class="service-card" data-title="Video production" data-img="./images/video_prep.png" data-details="We prepare for you outstanding videos for your events and other different fields like songs, films. Video services: Video recording, Live streaming.">
+         <img src="./images/video_prep.png" alt="Computer repairing Services">
+         <span>Video production</span>
+         <p>We prepare for you outstanding videos for your events and other different fields like songs, films. </p>
+         <p id="video_services"><strong class="networking_services">video services </strong> <i class="bi bi-arrow-down-circle"></i></p>
+         <ul class="videos_links">
+           <li>Video recording</li>
+           <li>Live streaming</li>
+         </ul>
+         <button class="whatsapp-order-btn" data-service="Video production">Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+         <div class="service-card" data-title="Computer repair" data-img="./images/repair.jpeg" data-details="Professional computer repair services including troubleshooting, hardware replacement, and software installation.">
+         <img src="./images/repair.jpeg" alt="Computer repairing Services">
+         <span>Computer repair</span>
+         <p>Professional computer repair services including troubleshooting, hardware replacement, and software installation. </p>
+         <button class="whatsapp-order-btn" data-service="Computer repair">Make an Order <i class="bi bi-whatsapp"></i></button>
+       </div>
+         <div class="service-card service-card-hidden" data-title="Novostella Technologies Ltd" data-img="./images/logo.png" data-details="AT 'Novostella Technologies Ltd'. We are there for you">
+         <img src="./images/logo.png" alt="Novostella Technologies Ltd">
+         <span class="novos">AT "Novostella Technologies Ltd". We are there for you</span>
+       </div>
+         <div class="service-card service-card-hidden" data-title="Welcome" data-img="./images/welcome.png" data-details="">
+         <img src="./images/welcome.png" alt="Welcome image">
+       </div>
+     </div>
 </section>
-      <section class="about_contacts" id="about_contacts">
-    <h1>Get in touch</h1>
-    <div class="contact-about-wrapper"> 
-      <div class="contacts">
-          <h2>Contact Us</h2>
-        <span>Phone</span>
-        <p> <i class="bi bi-telephone-plus"></i> +250 783 420 067</p>
-        <span>Email</span>
-        <p>  <i class="bi bi-envelope-fill"></i> novostellatechnologies@gmail.com</p>
-        <span>Address</span>
-        <p>  <i class="bi bi-geo-alt-fill"></i> Bwiza, kayonza, Rwanda</p>
-        <a href="#location">Check on map</a>
-            </div>
-        <div class="about_us">
- <h2>About Us</h2>
-        <p>Novostella Technologies Ltd is a leading provider of innovative technology solutions, specializing in custom stamps, printing services, ID cards, networking, sticker printing on T-shirts, audio and video production, and computer repair and more. Our mission is to deliver high-quality products and services that meet the unique needs of our clients.</p>
-        <p>Founded in 2022, we have quickly established ourselves as a trusted partner for businesses and individuals looking for reliable technology solutions. Our team of experts is dedicated to providing exceptional customer service and support.</p>
-        <p>We are committed to continuous improvement and innovation, ensuring that we stay at the forefront of the technology industry.</p>
-            </div>
-    </div>
+       <section class="about_contacts" id="about_contacts">
+     <h1>Get in touch</h1>
+     <div class="contact-about-wrapper"> 
+         <div class="contacts">
+             <h2>Contact Us</h2>
+             <span>Phone</span>
+             <p> <i class="bi bi-telephone-plus"></i> +250 783 420 067</p>
+             <span>Email</span>
+             <p> <i class="bi bi-envelope-fill"></i> novostellatechnologies@gmail.com</p>
+             <span>Address</span>
+             <p> <i class="bi bi-geo-alt-fill"></i> Mukarange, kayonza, Rwanda</p>
+             <a href="#location">Check on map</a>
+         </div>
+         <div class="about_us">
+             <h2>About Us</h2>
+             <p>Novostella Technologies Ltd is a leading provider of innovative technology solutions, specializing in custom stamps, printing services, ID cards, networking, sticker printing on T-shirts, audio and video production, and computer repair and more. Our mission is to deliver high-quality products and services that meet the unique needs of our clients.</p>
+             <p>Founded in june, 2024, we have quickly established ourselves as a trusted partner for businesses and individuals looking for reliable technology solutions. Our team of experts is dedicated to providing exceptional customer service and support.</p>
+             <p>We are committed to continuous improvement and innovation, ensuring that we stay at the forefront of the technology industry.</p>
+
+             <div class="ceo">
+              <img src="./images/ceo.png" alt="CEO: MUBIRIGI JEAN NEPO MUSCENE">
+              <span>CEO: MUBIRIGI Jean Nepo Muscene</span>
+             </div>
+         </div>
+     </div>
 </section>
-      </section>
-      <footer class="site-footer" id="location">
-    <div class="footer-content">
-        <div class="footer-section about">
-            <h3>Novostella Technologies Ltd</h3>
-            <div class="contact-info">
-                <span><i class="bi bi-telephone-fill"></i> +250 783 420 067</span>
-                <span><i class="bi bi-envelope-fill"></i> novostellatechnologies@gmail.com</span>
-                <span><i class="bi bi-geo-alt-fill"></i> Bwiza, Kayonza, Rwanda</span>
-            </div>
-        </div>
+       <footer class="site-footer" id="location">
+     <div class="footer-content">
+         <div class="footer-section about">
+             <h3>Novostella Technologies Ltd</h3>
+             <div class="contact-info">
+                 <span><i class="bi bi-telephone-fill"></i> +250 783 420 067</span>
+                 <span><i class="bi bi-envelope-fill"></i> novostellatechnologies@gmail.com</span>
+                 <span><i class="bi bi-geo-alt-fill"></i> Mukarange, Kayonza, Rwanda</span>
+             </div>
+         </div>
 
-        <div class="footer-section links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Services</a></li>
-                <li><a href="#about_contacts">About Us</a></li>
-                <li><a href="#about_contacts">Contact</a></li>
-                </ul>
-              </div>
-        <div class="footer-section map">
-            <h3>Find Us</h3>
-            <div class="map-container-footer">
-                <iframe src="https://www.google.com/maps/embed?pb=!4v1752597042344!6m8!1m7!1s006eTeEj_rLb7jTYIUtRhQ!2m2!1d-1.900012405127724!2d30.50759692568091!3f278.4179458721782!4f-0.04664360281687152!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </div>
+         <div class="footer-section links">
+             <h3>Quick Links</h3>
+             <ul>
+                 <li><a href="#home">Home</a></li>
+                 <li><a href="#features">Services</a></li>
+                 <li><a href="#about_contacts">About Us</a></li>
+                 <li><a href="#about_contacts">Contact</a></li>
+             </ul>
+         </div>
+         <div class="footer-section map">
+             <h3>Find Us</h3>
+             <div class="map-container-footer">
+               <iframe src="https://www.google.com/maps/embed?pb=!4v1752856893920!6m8!1m7!1s006eTeEj_rLb7jTYIUtRhQ!2m2!1d-1.900012405127724!2d30.50759692568091!3f283.6006264269017!4f2.9658591780719377!5f3.325193203789971" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             </div>
+         </div>
+     </div>
 
-    <div class="footer-bottom">
-        <p>&copy; <span id="current-year"></span> Novostella Technologies Ltd. All rights reserved.</p>
-    </div>
+     <div class="footer-bottom">
+         <p>© <span id="current-year"></span> Novostella Technologies Ltd. All rights reserved.</p>
+     </div>
 </footer>
+
+<button id="scrollToTopBtn" title="Go to top">
+  <i class="bi bi-arrow-up-circle-fill"></i>
+</button>
+
+<div id="feedbackFormContainer" class="feedback-form-container">
+  <h4>Recommend or comment</h4>
+  <form id="feedbackForm" method="POST">
+    <input type="email" name="email" placeholder="Email address" required>
+    <textarea name="comment" placeholder="What you recommend or comment..." rows="3" required></textarea>
+    <button type="submit">Recommend or comment</button>
+  </form>
+</div>
+
+<div id="serviceModal" class="modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+  <div class="modal-content" style="background:#fff; padding:2em; border-radius:8px; max-width:400px; width:90%; position:relative; text-align:center;">
+    <span id="closeModal" style="position:absolute; top:10px; right:20px; font-size:2em; cursor:pointer;">&times;</span>
+    <img id="modalImg" src="" alt="" style="max-width:120px; margin-bottom:1em;">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDetails"></p>
+  </div>
+</div>
+<script>
+  document.getElementById('stamp-direct-button').addEventListener('click', function() {
+    window.location.href = './frontend/stamps_view.php';
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    }
+
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+
+  
+    const scrollBtn = document.getElementById("scrollToTopBtn");
+    window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+
+    const feedbackFormContainer = document.getElementById("feedbackFormContainer");
+    const feedbackInputs = feedbackFormContainer.querySelectorAll('input, textarea');
+    let cyclePaused = false;
+    let cycleInterval;
+
+    function startCycle() {
+        
+        clearInterval(cycleInterval);
+
+      
+        cycleInterval = setInterval(() => {
+            if (cyclePaused) return; 
+
+            
+            feedbackFormContainer.style.display = "block";
+
+          
+            setTimeout(() => {
+                if (!cyclePaused) {
+                    feedbackFormContainer.style.display = "none";
+                }
+            }, 5000);
+
+        }, 11000); 
+    }
+
+  
+    setTimeout(startCycle, 6000);
+
+
+    feedbackInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            cyclePaused = true;
+        });
+
+        input.addEventListener('blur', () => {
+        
+            setTimeout(() => {
+                if (![...feedbackInputs].some(el => el === document.activeElement)) {
+                    cyclePaused = false;
+                }
+            }, 100);
+        });
+    });
+
+
+    const feedbackForm = document.getElementById("feedbackForm");
+    feedbackForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Thank you for your feedback!");
+        feedbackForm.reset();
+        cyclePaused = false;
+        feedbackFormContainer.style.display = "none";
+    });
+});
+
+</script>
+<script>
+  feedbackForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(feedbackForm);
+  const email = formData.get('email');
+  const comment = formData.get('comment');
+
+  try {
+    const res = await fetch('./backend/feedback.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, comment })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Thank you for your feedback!");
+      feedbackForm.reset();
+      cyclePaused = false;
+      feedbackFormContainer.style.display = "none";
+    } else {
+      alert(data.error || "Failed to submit.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Server error.");
+  }
+});
+
+</script>
+    <!-- Pure CSS toggle for mobile menu -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (navToggle && navLinks) {
+          navToggle.addEventListener('click', function(e) {
+            navLinks.classList.toggle('open');
+          });
+        }
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
+    <script>
+  // Service card modal logic
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('serviceModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImg = document.getElementById('modalImg');
+    const modalDetails = document.getElementById('modalDetails');
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Prevent button inside card from triggering modal
+        if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+        modalTitle.textContent = card.getAttribute('data-title') || '';
+        modalImg.src = card.getAttribute('data-img') || '';
+        modalImg.alt = card.getAttribute('data-title') || '';
+        modalDetails.textContent = card.getAttribute('data-details') || '';
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+</script>
+<script>
+  // WhatsApp order button logic
+  document.addEventListener('DOMContentLoaded', function() {
+    // Replace with your WhatsApp number (in international format, e.g. 250783420067)
+    const whatsappNumber = '250783420067';
+    document.querySelectorAll('.whatsapp-order-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const service = btn.getAttribute('data-service') || '';
+        const url = `https://wa.me/${whatsappNumber}?text=Hello%2C%20I%20want%20to%20order%20or%20inquire%20about%20the%20service:%20${encodeURIComponent(service)}`;
+        window.open(url, '_blank');
+      });
+    });
+
+    // Service card modal logic for all cards (including Stamp and Logo)
+    const modal = document.getElementById('serviceModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImg = document.getElementById('modalImg');
+    const modalDetails = document.getElementById('modalDetails');
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Prevent modal if order button or "view more" button is clicked
+        if (
+          e.target.classList.contains('whatsapp-order-btn') ||
+          e.target.closest('.whatsapp-order-btn') ||
+          e.target.id === 'stamp-direct-button' ||
+          e.target.closest('#stamp-direct-button')
+        ) return;
+        modalTitle.textContent = card.getAttribute('data-title') || '';
+        modalImg.src = card.getAttribute('data-img') || '';
+        modalImg.alt = card.getAttribute('data-title') || '';
+        modalDetails.textContent = card.getAttribute('data-details') || '';
+        modal.style.display = 'flex';
+      });
+    });
+
+    if (closeModal) {
+      closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+    }
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Stamps card "view more" button
+    const stampBtn = document.getElementById('stamp-direct-button');
+    if (stampBtn) {
+      stampBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        window.location.href = './frontend/stamps_view.php';
+      });
+    }
+  });
+</script>
 </body>
 </html>
