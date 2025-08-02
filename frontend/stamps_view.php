@@ -98,20 +98,12 @@ session_start();
             <span class="close-button">&times;</span>
             <h2>Order Confirmation</h2>
             <p>You are about to order <strong id="productNameInModal"></strong>.</p>
-            <p>Please provide your details below to finalize your order via email, or chat with us on WhatsApp.</p>
-            <form id="orderEmailForm" action="../backend/submit_order.php" method="POST">
-                <input type="text" name="customer_name" id="customerNameInput" placeholder="Your Full Name" required>
-                <input type="tel" name="customer_phone" id="customerPhoneInput" placeholder="Your Phone Number (e.g., +2507XXXXXXXX)" required>
-                <input type="text" name="customer_location" id="customerLocationInput" placeholder="Your Location (e.g., Kigali, Remera)" required>
-                <textarea name="customer_address" id="customerAddressInput" placeholder="Your Full Address for Delivery" rows="3" required></textarea>
-                <input type="email" name="customer_email" id="customerEmailInput" placeholder="Your Email Address" required>
-                <input type="hidden" name="product_ordered" id="productOrderedHidden">
-                <input type="hidden" name="order_datetime" id="orderDateTimeHidden">
-                <input type="hidden" name="product_image_url" id="productImageURLHidden"> 
-                <button type="submit" class="email-order-button"><i class="bi bi-send-fill"></i> Order now</button>
-            </form>
-            <button id="confirmOrderWhatsApp" class="whatsapp-button">
-                <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+            <p>Choose your preferred way to order:</p>
+            <button id="orderViaWhatsApp" class="whatsapp-button" style="background:#25d366;">
+                <i class="bi bi-whatsapp"></i> Order via WhatsApp
+            </button>
+            <button id="orderViaEmail" class="whatsapp-button" style=" background-image: linear-gradient(to right, rgba(255, 255, 255, 1),  rgba(238, 255, 0, 1)); color:  rgba(31, 85, 6, 1);">
+                <i class="bi bi-envelope" style="color: red; font-size: 1.7em;"></i> Order via Email
             </button>
             <p class="small-text">Our team will assist you with your purchase via your preferred method.</p>
         </div>
@@ -134,105 +126,53 @@ session_start();
         const whatsappOrderModal = document.getElementById('whatsappOrderModal');
         const closeButton = document.querySelector('.modal .close-button');
         const productNameInModal = document.getElementById('productNameInModal');
-        const confirmOrderWhatsApp = document.getElementById('confirmOrderWhatsApp');
+        const orderViaWhatsApp = document.getElementById('orderViaWhatsApp');
+        const orderViaEmail = document.getElementById('orderViaEmail');
 
-        const customerNameInput = document.getElementById('customerNameInput');
-        const customerPhoneInput = document.getElementById('customerPhoneInput');
-        const customerLocationInput = document.getElementById('customerLocationInput');
-        const customerAddressInput = document.getElementById('customerAddressInput');
-        const customerEmailInput = document.getElementById('customerEmailInput');
-        const productOrderedHidden = document.getElementById('productOrderedHidden');
-        const orderDateTimeHidden = document.getElementById('orderDateTimeHidden');
-        const productImageURLHidden = document.getElementById('productImageURLHidden');
-
-        const yourWhatsAppNumber = '250783420067';
         let selectedProduct = '';
-        let selectedProductImageUrl = ''; 
+        let selectedProductImageUrl = '';
 
         orderButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const stampItem = this.closest('.stamp-item');
                 selectedProduct = stampItem.querySelector('h2').innerText;
-                selectedProductImageUrl = stampItem.querySelector('img').getAttribute('data-img-url'); 
-
+                selectedProductImageUrl = stampItem.querySelector('img').getAttribute('data-img-url');
                 productNameInModal.innerText = selectedProduct;
-                productOrderedHidden.value = selectedProduct;
-                productImageURLHidden.value = selectedProductImageUrl; 
-
-                
-                orderDateTimeHidden.value = new Date().toLocaleString('en-US', {
-                    timeZone: 'Africa/Kigali',
-                    year: 'numeric', month: 'long', day: 'numeric',
-                    hour: '2-digit', minute: '2-digit', second: '2-digit'
-                });
-
                 whatsappOrderModal.classList.add('active');
             });
         });
 
         closeButton.addEventListener('click', function() {
             whatsappOrderModal.classList.remove('active');
-            
-            if (customerNameInput) customerNameInput.value = '';
-            if (customerPhoneInput) customerPhoneInput.value = '';
-            if (customerLocationInput) customerLocationInput.value = '';
-            if (customerAddressInput) customerAddressInput.value = '';
-            if (customerEmailInput) customerEmailInput.value = '';
-            if (productImageURLHidden) productImageURLHidden.value = ''; 
         });
 
         window.addEventListener('click', function(event) {
             if (event.target == whatsappOrderModal) {
                 whatsappOrderModal.classList.remove('active');
-                
-                if (customerNameInput) customerNameInput.value = '';
-                if (customerPhoneInput) customerPhoneInput.value = '';
-                if (customerLocationInput) customerLocationInput.value = '';
-                if (customerAddressInput) customerAddressInput.value = '';
-                if (customerEmailInput) customerEmailInput.value = '';
-                if (productImageURLHidden) productImageURLHidden.value = ''; 
             }
         });
 
-        confirmOrderWhatsApp.addEventListener('click', function() {
+        orderViaWhatsApp.addEventListener('click', function() {
             if (!selectedProduct) {
                 alert('Please select a product first.');
                 return;
             }
-            
-            const customerName = customerNameInput ? customerNameInput.value : '';
-            const customerPhone = customerPhoneInput ? customerPhoneInput.value : '';
-            const customerLocation = customerLocationInput ? customerLocationInput.value : '';
-            const customerAddress = customerAddressInput ? customerAddressInput.value : '';
-            const customerEmail = customerEmailInput ? customerEmailInput.value : '';
-            const orderDateTime = orderDateTimeHidden ? orderDateTimeHidden.value : 'N/A'; 
-
             let whatsappMessage = `Hello Novostella Technologies, I would like to order the stamp: ${selectedProduct}.`;
-
-            if (customerName) whatsappMessage += ` My name is ${customerName}.`;
-            if (customerPhone) whatsappMessage += ` My phone is ${customerPhone}.`;
-            if (customerLocation) whatsappMessage += ` My location is ${customerLocation}.`;
-            if (customerAddress) whatsappMessage += ` My address is ${customerAddress}.`;
-            if (customerEmail) whatsappMessage += ` My email is ${customerEmail}.`;
-            if (orderDateTime && orderDateTime !== 'N/A') whatsappMessage += ` Order placed at: ${orderDateTime}.`;
-               
-
             if (selectedProductImageUrl) whatsappMessage += ` Product Image URL: ${window.location.origin}/${selectedProductImageUrl.replace('../', '')}.`;
-
             whatsappMessage += ` Please provide full details of the stamp and my contacts.`;
-
             const message = encodeURIComponent(whatsappMessage);
-            const whatsappLink = `https://wa.me/${yourWhatsAppNumber}?text=${message}`;
+            const whatsappLink = `https://wa.me/250783420067?text=${message}`;
             window.open(whatsappLink, '_blank');
             whatsappOrderModal.classList.remove('active');
+        });
 
-           
-            if (customerNameInput) customerNameInput.value = '';
-            if (customerPhoneInput) customerPhoneInput.value = '';
-            if (customerLocationInput) customerLocationInput.value = '';
-            if (customerAddressInput) customerAddressInput.value = '';
-            if (customerEmailInput) customerEmailInput.value = '';
-            if (productImageURLHidden) productImageURLHidden.value = ''; 
+        orderViaEmail.addEventListener('click', function() {
+            // Pass product info via URL parameters
+            const params = new URLSearchParams({
+                product: selectedProduct,
+                img: selectedProductImageUrl
+            });
+            window.location.href = `submit_email_order.php?${params.toString()}`;
         });
     </script>
 </body>
