@@ -573,7 +573,10 @@ font-size: 1.2em;
 .feedback-form-container button[type="submit"]:hover {
   background-color: #218838;
 }
-
+#photography_services{
+    color: #07a873;
+    font-size: 1.2em;
+}
 /* Animation */
 @keyframes slideIn {
   from {
@@ -586,17 +589,16 @@ font-size: 1.2em;
   }
 }
 #stamp-direct-button {
-    width: 70%;
-    height: 3em;
+    width: 60%;
+    height: 2.2em;
     margin-top: 20px;
     margin-left: 50px;
     font-size: 1.3rem;
-    background: #fbfffa;
-    color: #009600;
+  background: #25d366;
+    color: #ffffff;
     border: none;
-    border-radius: 24px;
+    border-radius: 14px;
     display: flex;
-    font-family: 'Agbalumo', sans-serif;
     align-items: center;
     justify-content: center;
     gap: 14px;
@@ -607,7 +609,7 @@ font-size: 1.2em;
 }
 
 #stamp-direct-button i {
-    color: #00ad48;
+    color: #ffffff;
     font-size: 1.5em;
     margin-left: 8px;
     vertical-align: middle;

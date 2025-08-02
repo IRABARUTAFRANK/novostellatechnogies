@@ -6,7 +6,7 @@
     <title>Submit your order via email - NST</title>
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-     <link rel="stylesheet" href="../css/submit_email_order.css">
+     <link rel="stylesheet" href="../css/submit_email_order.css?v=1.0">
 </head>
 <body>
     

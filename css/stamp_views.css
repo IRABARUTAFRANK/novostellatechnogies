@@ -107,7 +107,7 @@ font-size: 1.2em;
     left: 0;
     right: 0;
     bottom: 0;   
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: -1;
 }
 
@@ -186,7 +186,7 @@ font-size: 1.2em;
 .correction_stamps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2.5rem;
+    gap: 5.5rem;
     max-width: 1400px;
     margin: 0 auto 60px auto;
     padding: 0 20px;
@@ -212,14 +212,16 @@ font-size: 1.2em;
 
 .stamp-item h2 {
     color: #070d58;
-    font-size: 1.3em;
+    font-size: 1.5em;
+    font-weight: 900;
     margin-bottom: 10px;
-    font-family: 'Noto Serif Tamil', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
 }
 
 .stamp-item img {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 14px;
@@ -433,54 +435,32 @@ font-size: 1.2em;
 }
   .message-container {
             position: fixed;
-            top: 20px;
+            top: 105px;
             left: 50%;
+            height: 105px;
             transform: translateX(-50%);
             padding: 15px 30px;
             border-radius: 8px;
-            font-size: 1.1em;
+            font-size: 1.58em;
             font-weight: bold;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             text-align: center;
-            opacity: 0; /* Start hidden */
+            opacity: 0; 
             transition: opacity 0.5s ease-in-out;
         }
         .message-container.show {
-            opacity: 1; /* Show when .show class is added */
+            opacity: 1; 
         }
         .message-container.success {
-            background-color: #d4edda;
-            color: #155724;
+            background-color: #658b6d;
+            color: #e1f7db;
             border: 1px solid #c3e6cb;
         }
-        .message-container.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-           .message-container {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: bold;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .message-container.success .momo-pay{
+            color: #FFCC08;
+            font-size: 1.8em;
             text-align: center;
-            opacity: 0; /* Start hidden */
-            transition: opacity 0.5s ease-in-out;
-        }
-        .message-container.show {
-            opacity: 1; /* Show when .show class is added */
-        }
-        .message-container.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
         }
         .message-container.error {
             background-color: #f8d7da;
@@ -522,6 +502,23 @@ font-size: 1.2em;
     .nav-links ul li {
         margin: 0;
     }
+    .modal-content{
+        width: 76%;
+    }
+    .modal-content h2 {
+    font-size: 1.6em;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+.modal-content .small-text {
+    font-size: 0.8em;
+}
+.modal-content button{
+    font-size: 1em;
+}
 }
 
 @media (max-width: 480px) {
@@ -537,6 +534,23 @@ font-size: 1.2em;
     .hero {
         padding: 40px 3%;
     }
+        .modal-content{
+        width: 76%;
+    }
+    .modal-content h2 {
+    font-size: 1.6em;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+.modal-content .small-text {
+    font-size: 0.8em;
+}
+.modal-content button{
+    font-size: 1em;
+}
     /* ...existing code... */
 }
 
@@ -555,6 +569,23 @@ font-size: 1.2em;
     .hero-content p {
         font-size: 1.1rem;
     }
+        .modal-content{
+        width: 76%;
+    }
+    .modal-content h2 {
+    font-size: 1.6em;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+.modal-content .small-text {
+    font-size: 0.8em;
+}
+.modal-content button{
+    font-size: 1em;
+}
 }
 
 @media (max-width: 600px) {
@@ -575,6 +606,13 @@ font-size: 1.2em;
         font-size: 1em;
         margin-bottom: 18px;
     }
+     .message-container {
+        top: 100px; /* Adjust vertical position */
+        padding: 10px 20px; /* Reduce padding */
+        font-size: 1.2em; /* Decrease font size */
+        height: auto; /* Allow height to adjust to content */
+        max-width: 100%; /* Ensure it doesn't overflow the screen */
+    }
 }
 
 @media (max-width: 400px) {
@@ -591,140 +629,31 @@ font-size: 1.2em;
     .hero-content p {
         font-size: 0.95em;
     }
+     .message-container {
+        top: 100px; 
+        padding: 8px 15px; 
+        font-size: 1em;
+        width: 90%;
+    }
+    .message-container.success .momo-pay {
+        font-size: 1.5em;
+    }
+        .modal-content{
+        width: 76%;
+    }
+    .modal-content h2 {
+    font-size: 1.6em;
 }
 
-/* Base styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f8f9fa;
-  color: #222;
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+.modal-content .small-text {
+    font-size: 0.8em;
+}
+.modal-content button{
+    font-size: 1em;
+}
 }
 
-.stamp-container {
-  max-width: 1100px;
-  margin: 2em auto;
-  padding: 1em;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-}
-
-.stamp-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  justify-content: center;
-}
-
-.stamp-card {
-  background: #fafafa;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-  padding: 1em;
-  width: 320px;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.2s;
-}
-
-.stamp-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-}
-
-.stamp-card img {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 1em;
-  object-fit: contain;
-}
-
-.stamp-card h3 {
-  font-size: 1.2em;
-  margin: 0.5em 0 0.3em 0;
-  text-align: center;
-}
-
-.stamp-card p {
-  font-size: 1em;
-  margin: 0.3em 0 0.7em 0;
-  text-align: center;
-}
-
-.stamp-card .order-btn {
-  background: #25d366;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5em 1.2em;
-  font-size: 1em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(34, 139, 34, 0.08);
-  margin-top: 0.5em;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.stamp-card .order-btn:hover,
-.stamp-card .order-btn:focus {
-  background: #128c7e;
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(34, 139, 34, 0.15);
-}
-
-/* Responsive styles */
-@media (max-width: 900px) {
-  .stamp-list {
-    gap: 1em;
-  }
-  .stamp-card {
-    width: 45%;
-    min-width: 220px;
-  }
-}
-
-@media (max-width: 600px) {
-  .stamp-container {
-    padding: 0.5em;
-  }
-  .stamp-list {
-    flex-direction: column;
-    gap: 1em;
-    align-items: center;
-  }
-  .stamp-card {
-    width: 98%;
-    min-width: 0;
-    padding: 0.7em;
-  }
-  .stamp-card img {
-    max-width: 100%;
-  }
-}
-
-/* Optional: Responsive heading and text */
-.stamp-container h1,
-.stamp-container h2 {
-  font-size: 1.5em;
-  text-align: center;
-  margin: 0.5em 0;
-}
-
-@media (max-width: 400px) {
-  .stamp-card {
-    padding: 0.4em;
-  }
-  .stamp-container h1,
-  .stamp-container h2 {
-    font-size: 1.1em;
-  }
-}

@@ -4,7 +4,6 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
 $your_business_email = 'novostellatechnologies@gmail.com';
 $your_app_password = 'bavcdlnmrcudazfn';
 
@@ -28,7 +27,6 @@ if ($conn->connect_error) {
 }
 
 try {
-    
     $customer_name = trim($_POST['customer_name'] ?? '');
     $customer_phone = trim($_POST['customer_phone'] ?? '');
     $customer_address = trim($_POST['customer_address'] ?? '');
@@ -41,8 +39,7 @@ try {
     $tel = trim($_POST['tel'] ?? '');
     $other_info = trim($_POST['other_info'] ?? '');
 
-    
-    if (empty($customer_name) || empty($customer_phone) || empty($customer_address) || empty($customer_email) || empty($business_name)) {
+    if (empty($customer_name) || empty($customer_phone) || empty($customer_address) || empty($customer_email) || empty($business_name) || empty($product_ordered)) {
         $_SESSION['message'] = 'Missing required customer details or stamp design information. Please fill all fields.';
         $_SESSION['status'] = 'error';
         
@@ -56,14 +53,8 @@ try {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-    if (empty($product_ordered)) {
-        $_SESSION['message'] = 'No product specified for order.';
-        $_SESSION['status'] = 'error';
-        header('Location: ../frontend/stamps_view.php');
-        exit;
-    }
 
-
+    
     $image_file_name = basename($product_image_url_relative);
     $local_image_path = __DIR__ . '/../images/' . $image_file_name;
     
@@ -72,14 +63,12 @@ try {
         $image_to_embed = $local_image_path;
     }
 
-    
     $stmt = $conn->prepare("INSERT INTO orders (customer_name, customer_phone, customer_address, customer_email, product_ordered, order_datetime, product_image_url, business_name, tin, tel, other_info) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssssssss", $customer_name, $customer_phone, $customer_address, $customer_email, $product_ordered, $order_datetime, $product_image_url_relative, $business_name, $tin, $tel, $other_info);
 
     if ($stmt->execute()) {
         $mail = new PHPMailer(true);
 
-   
         $mail->SMTPDebug = SMTP::DEBUG_OFF;
         $mail->isSMTP();
         $mail->Host      = 'smtp.gmail.com';
@@ -104,6 +93,19 @@ try {
             $owner_image_html = "<p><em>Product image not available.</em></p>";
         }
 
+        // --- Start of conditional logic for the owner's email ---
+        $optional_fields_owner = '';
+        if (!empty($tin)) {
+            $optional_fields_owner .= "<p><strong>TIN:</strong> " . htmlspecialchars($tin) . "</p>";
+        }
+        if (!empty($tel)) {
+            $optional_fields_owner .= "<p><strong>Tel:</strong> " . htmlspecialchars($tel) . "</p>";
+        }
+        if (!empty($other_info)) {
+            $optional_fields_owner .= "<p><strong>Other Information:</strong> " . nl2br(htmlspecialchars($other_info)) . "</p>";
+        }
+        // --- End of conditional logic ---
+
         $email_body_to_owner = "
             <html>
             <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
@@ -118,9 +120,7 @@ try {
                 <hr style='border: 0; border-top: 1px solid #eee; margin: 20px 0;'>
                 <h3 style='color: #333;'>--- Stamp Design Details ---</h3>
                 <p><strong>Business Name / Individual Names:</strong> " . htmlspecialchars($business_name) . "</p>
-                <p><strong>TIN:</strong> " . htmlspecialchars($tin) . "</p>
-                <p><strong>Tel:</strong> " . htmlspecialchars($tel) . "</p>
-                <p><strong>Other Information:</strong> " . nl2br(htmlspecialchars($other_info)) . "</p>
+                " . $optional_fields_owner . "
                 <p><strong>Order Date/Time:</strong> " . htmlspecialchars($order_datetime) . "</p>
                 <hr style='border: 0; border-top: 1px solid #eee; margin: 20px 0;'>
                 " . $owner_image_html . "
@@ -131,7 +131,6 @@ try {
         $mail->Body = $email_body_to_owner;
         $mail->send();
 
-      
         $mail->clearAddresses();
         $mail->clearAttachments();
         $mail->addAddress($customer_email, $customer_name);
@@ -147,6 +146,19 @@ try {
         } else {
             $customer_image_html = "<p><em>Product image not available or could not be loaded.</em></p>";
         }
+        
+        // --- Start of conditional logic for the customer's email ---
+        $optional_fields_customer = '';
+        if (!empty($tin)) {
+            $optional_fields_customer .= "<li><strong>TIN:</strong> " . htmlspecialchars($tin) . "</li>";
+        }
+        if (!empty($tel)) {
+            $optional_fields_customer .= "<li><strong>Tel:</strong> " . htmlspecialchars($tel) . "</li>";
+        }
+        if (!empty($other_info)) {
+            $optional_fields_customer .= "<li><strong>Other Information:</strong> " . nl2br(htmlspecialchars($other_info)) . "</li>";
+        }
+        // --- End of conditional logic ---
 
         $customer_body = "
             <html>
@@ -160,9 +172,7 @@ try {
                 <h3 style='color: #333;'>Stamp Design Details:</h3>
                 <ul style='list-style: none; padding-left: 0;'>
                     <li><strong>Business Name / Names:</strong> " . htmlspecialchars($business_name) . "</li>
-                    <li><strong>TIN:</strong> " . htmlspecialchars($tin) . "</li>
-                    <li><strong>Tel:</strong> " . htmlspecialchars($tel) . "</li>
-                    <li><strong>Other Information:</strong> " . nl2br(htmlspecialchars($other_info)) . "</li>
+                    " . $optional_fields_customer . "
                 </ul>
                 <hr style='border: 0; border-top: 1px solid #eee; margin: 20px 0;'>
                 <p>Our team will review your order and contact you shortly at " . htmlspecialchars($customer_phone) . " or " . htmlspecialchars($customer_email) . " to finalize the details.</p>
@@ -174,7 +184,7 @@ try {
         $mail->Body = $customer_body;
         $mail->send();
 
-        $_SESSION['message'] = 'Order details sent successfully! We will contact you soon.';
+        $_SESSION['message'] = 'Order details sent successfully! Please finish the payment through our MoMoPay. <br><span class="momo-pay">Dial *182*8*1*079283#</span></p>';
         $_SESSION['status'] = 'success';
     } else {
         $_SESSION['message'] = "Failed to submit your order. Please try again.";
