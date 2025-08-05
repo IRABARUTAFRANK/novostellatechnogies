@@ -8,7 +8,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stamp correction | Novostella Technologies Ltd</title>
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/stamp_views.css?v=55.0"> <link href="https://fonts.cdnfonts.com/css/texturina" rel="stylesheet">
+    <link rel="stylesheet" href="../css/stamp_views.css?v=80.0">
+    <link href="https://fonts.cdnfonts.com/css/texturina" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/noto-serif-tamil" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
@@ -44,6 +45,7 @@ session_start();
             </div>
             <div class="nav-links">
                 <ul>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="#stamp-collection">View collection</a></li>
                 </ul>
             </div>

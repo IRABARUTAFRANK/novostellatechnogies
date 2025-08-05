@@ -468,7 +468,7 @@ font-size: 1.2em;
             border: 1px solid #f5c6cb;
         }
 /* --- Media Queries (ensure responsiveness) --- */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .navbar {
         flex-direction: column;
         align-items: stretch;
@@ -522,11 +522,17 @@ font-size: 1.2em;
 }
 
 @media (max-width: 480px) {
+    .nav-links ul li a{
+        gap: 40px;
+    }
     .navbar {
         padding: 8px 3% 0 3%;
     }
     .logo {
         margin-bottom: 6px;
+    }
+    .logo span{
+        font-size: 0.5em;
     }
     .nav-links ul {
         gap: 10px;
@@ -562,6 +568,9 @@ font-size: 1.2em;
         padding: 40px 10px;
         width: 95%;
         max-width: 700px;
+    }
+        .logo span{
+        font-size: 1em;
     }
     .hero-content h1 {
         font-size: 2.5rem;
@@ -607,11 +616,11 @@ font-size: 1.2em;
         margin-bottom: 18px;
     }
      .message-container {
-        top: 100px; /* Adjust vertical position */
-        padding: 10px 20px; /* Reduce padding */
-        font-size: 1.2em; /* Decrease font size */
-        height: auto; /* Allow height to adjust to content */
-        max-width: 100%; /* Ensure it doesn't overflow the screen */
+        top: 100px;
+        padding: 10px 20px; 
+        font-size: 1.2em; 
+        height: auto; 
+        max-width: 100%;
     }
 }
 
@@ -619,6 +628,9 @@ font-size: 1.2em;
     .hero {
         padding: 15px 1%;
         min-height: 60px;
+    }
+        .logo span{
+        font-size: 0.5em;
     }
     .hero-content {
         padding: 8px 1%;

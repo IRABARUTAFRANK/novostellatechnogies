@@ -1,0 +1,32 @@
+DATABSE DESIGN
+
+   Orders -- all the prodcts must be sent here 
+   comment or recommendation
+   Admin portal
+   Admin panel also can be crucial
+   
+
+
+Table relationships 
+  Admin 
+  Orders
+      orderes must be of different categories
+      The order will include the order type
+  Users of the site
+  comments and recommendations
+
+
+  Next tomorrow
+
+  work on the t-shirts page
+        Add price
+        Add way to get the service
+        For the email form to use while applying on t-shirts we will include uplaod file and also the text to be written there if its the selection
+  Work on the audio pages
+       Add price
+       Add the way to get that service
+       Also remember to put that negotiations are available
+
+
+       After all this build an algorithm and code to handle all this fetching and sending of the data
+

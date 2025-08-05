@@ -607,20 +607,134 @@ font-size: 1.2em;
     transition: background 0.2s, box-shadow 0.2s;
     box-shadow: 0 5px 10px rgba(26,35,126,0.08);
 }
-
+.t-shirt-direct-button{
+    width: 60%;
+    height: 2.2em;
+    margin-top: 20px;
+    margin-left: 50px;
+    font-size: 1.3rem;
+  background: #25d366;
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 10px rgba(26,35,126,0.08)  
+}
 #stamp-direct-button i {
     color: #ffffff;
     font-size: 1.5em;
     margin-left: 8px;
     vertical-align: middle;
 }
+.t-shirt-direct-button i{
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.audio_productions{
+     width: 60%;
+    height: 2.2em;
+    margin-top: 20px;
+    margin-left: 50px;
+    font-size: 1.3rem;
+  background: #25d366;
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 10px rgba(26,35,126,0.08)   
+}
+.audio_productions i{
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.popup-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+}
+.popup-overlay.active {
+  display: flex;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  text-align: left;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+.close-popup-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2em;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s;
+}
+.close-popup-btn:hover {
+  color: #ff6600;
+}
+
+.popup-text {
+  line-height: 1.6;
+  font-size: 1.2em;
+  color: #292929;
+}
+
+.popup-text h2, .popup-text h3 {
+  color: #474747;
+  border-bottom: 2px solid #00c03a;
+  padding-bottom: 5px;
+  margin-top: 25px;
+}
+
+.popup-text ul {
+  list-style-type: square;
+  padding: 0;
+}
+
+.popup-text li {
+  margin-bottom: 10px;
+}
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 20px 0 20px;
     }
-
+    .stamp-direct-button{
+        font-size: 0.8em;
+    }
     .nav-links ul {
-        display: none;
+        display: flex;
         flex-direction: column;
         background-color: #fff;
         position: absolute;
@@ -628,25 +742,31 @@ font-size: 1.2em;
         left: 0;
         width: 100%;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        padding: 20px 0;
+        padding: 0;
         text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+        /* Hide by default, animate open/close */
     }
-.logo span{
-    display: none;
-}
+    .logo span{
+        font-size: 1.5em;
+    }
     .nav-links.open ul {
-        display: flex;
+        max-height: 500px; /* Large enough for all links */
+        padding: 20px 0;
+        transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
     }
-
     .nav-links ul li {
         margin: 10px 0;
     }
-
     .nav-links ul li a {
         padding: 10px;
         color: #1a237e;
     }
-
+    .nav-links{
+        scroll-behavior: smooth;
+    }
     .nav-toggle {
         display: block;
     }
@@ -671,7 +791,7 @@ font-size: 1.2em;
 
     .cta-btn {
         padding: 12px 28px;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .features {
@@ -750,8 +870,22 @@ font-size: 1.2em;
         padding-bottom: 75%;
     }
 }
-
+@media (max-width: 950px){
+.hero-content h1{
+    font-size: 2em;
+}
+.logo span{
+    font-size: 0.7em;
+}
+.nav-links ul li a{
+    font-size: 1em;
+    gap: 10px;
+}
+}
 @media (max-width: 480px) {
+    .stamp-direct-button{
+      font-size: 0.8em;
+    }
     .navbar {
         padding: 10px 15px 0 15px;
     }
@@ -759,14 +893,13 @@ font-size: 1.2em;
     .logo {
         font-size: 1.2rem;
     }
-.logo span{
-    display: none;
-}
     .logo img {
         height: 35px;
         margin-right: 8px;
     }
-
+.logo span{
+    display: none;
+}
     .nav-toggle {
         font-size: 1.8em;
     }
@@ -864,7 +997,7 @@ font-size: 1.2em;
     }
 }
 
-.whatsapp-order-btn {
+.whatsapp-order-btn{
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
@@ -881,7 +1014,23 @@ font-size: 1.2em;
   margin-top: 1em;
   text-decoration: none;
 }
-
+.computer_repair{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: #25d366;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1.2em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(34, 139, 34, 0.08);
+    margin-top: 1em;
+    text-decoration: none;
+}
 .whatsapp-order-btn:hover,
 .whatsapp-order-btn:focus {
   background: #128c7e;
