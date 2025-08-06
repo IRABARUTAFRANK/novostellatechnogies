@@ -13,10 +13,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-$host = "sql211.infinityfree.com";
-$user = "if0_39552079";
-$pass = "frabenber123";
-$dbname = "if0_39552079_novostella_technologies";
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "novostella_technologies";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 if ($conn->connect_error) {
@@ -56,8 +56,26 @@ try {
 
     
     $image_file_name = basename($product_image_url_relative);
-    $local_image_path = __DIR__ . '/../images/' . $image_file_name;
-    
+    $images_dir = dirname(__DIR__) . '/images/';
+    $local_image_path = $images_dir . $image_file_name;
+
+    // Try to find the image file even if there are minor differences (spaces, case)
+    if (!empty($product_image_url_relative) && !file_exists($local_image_path)) {
+        // Scan the images directory for a close match
+        $image_file_name_normalized = strtolower(str_replace(' ', '', $image_file_name));
+        $found_image = null;
+        foreach (scandir($images_dir) as $file) {
+            if ($file === '.' || $file === '..') continue;
+            if (strtolower(str_replace(' ', '', $file)) === $image_file_name_normalized) {
+                $found_image = $images_dir . $file;
+                break;
+            }
+        }
+        if ($found_image && file_exists($found_image)) {
+            $local_image_path = $found_image;
+        }
+    }
+
     $image_to_embed = null;
     if (!empty($product_image_url_relative) && file_exists($local_image_path)) {
         $image_to_embed = $local_image_path;
@@ -84,11 +102,22 @@ try {
         $mail->Subject = "New Stamp Order: " . htmlspecialchars($product_ordered);
 
         $owner_image_html = '';
-        if ($image_to_embed) {
-            $cid_owner = 'product_image_owner';
-            $mail->addEmbeddedImage($image_to_embed, $cid_owner, 'Product_Image.jpg');
-            $owner_image_html = "<p><strong>Product Image</strong></p>";
-            $owner_image_html .= "<p><img src=\"cid:" . $cid_owner . "\" alt=\"" . htmlspecialchars($product_ordered) . "\" style=\"max-width:200px; height:auto; border:1px solid #ddd; display: block; margin-top: 10px;\"></p>";
+        $image_embed_error = '';
+        if (!empty($product_image_url_relative)) {
+            if ($image_to_embed && file_exists($image_to_embed)) {
+                $cid_owner = 'product_image_owner';
+                try {
+                    $mail->addEmbeddedImage($image_to_embed, $cid_owner, 'Product_Image.jpg');
+                    $owner_image_html = "<p><strong>Product Image</strong></p>";
+                    $owner_image_html .= "<p><img src=\"cid:" . $cid_owner . "\" alt=\"" . htmlspecialchars($product_ordered) . "\" style=\"max-width:200px; height:auto; border:1px solid #ddd; display: block; margin-top: 10px;\"></p>";
+                } catch (Exception $e) {
+                    $image_embed_error = "<p style='color:red;'><em>Product image could not be embedded. Error: " . htmlspecialchars($e->getMessage()) . "</em></p>";
+                    $owner_image_html = $image_embed_error;
+                }
+            } else {
+                $image_embed_error = "<p style='color:red;'><em>Product image not found at path: " . htmlspecialchars($local_image_path) . ". Please check if the image was uploaded correctly.</em></p>";
+                $owner_image_html = $image_embed_error;
+            }
         } else {
             $owner_image_html = "<p><em>Product image not available.</em></p>";
         }
@@ -124,7 +153,7 @@ try {
                 <p><strong>Order Date/Time:</strong> " . htmlspecialchars($order_datetime) . "</p>
                 <hr style='border: 0; border-top: 1px solid #eee; margin: 20px 0;'>
                 " . $owner_image_html . "
-                <p>Please contact the customer at " . htmlspecialchars($customer_phone) . " or " . htmlspecialchars($customer_email) . " to finalize the order and arrange delivery.</p>
+                <p>Please contact the customer at " . htmlspecialchars($customer_phone) . " or " . htmlspecialchars($customer_email) . " to finalize the order details</p>
             </body>
             </html>
         ";
@@ -138,11 +167,22 @@ try {
         $mail->Subject = "Your Novostella Technologies Order Confirmation for " . htmlspecialchars($product_ordered);
 
         $customer_image_html = '';
-        if ($image_to_embed) {
-            $cid_customer = 'product_image_customer';
-            $mail->addEmbeddedImage($image_to_embed, $cid_customer, 'Product_Image.jpg');
-            $customer_image_html = "<p><strong>Product Image</strong></p>";
-            $customer_image_html .= "<p><img src=\"cid:" . $cid_customer . "\" alt=\"" . htmlspecialchars($product_ordered) . "\" style=\"max-width:200px; height:auto; border:1px solid #ddd; display: block; margin-top: 10px;\"></p>";
+        $image_embed_error_customer = '';
+        if (!empty($product_image_url_relative)) {
+            if ($image_to_embed && file_exists($image_to_embed)) {
+                $cid_customer = 'product_image_customer';
+                try {
+                    $mail->addEmbeddedImage($image_to_embed, $cid_customer, 'Product_Image.jpg');
+                    $customer_image_html = "<p><strong>Product Image</strong></p>";
+                    $customer_image_html .= "<p><img src=\"cid:" . $cid_customer . "\" alt=\"" . htmlspecialchars($product_ordered) . "\" style=\"max-width:200px; height:auto; border:1px solid #ddd; display: block; margin-top: 10px;\"></p>";
+                } catch (Exception $e) {
+                    $image_embed_error_customer = "<p style='color:red;'><em>Product image could not be embedded. Error: " . htmlspecialchars($e->getMessage()) . "</em></p>";
+                    $customer_image_html = $image_embed_error_customer;
+                }
+            } else {
+                $image_embed_error_customer = "<p style='color:red;'><em>Product image not found at path: " . htmlspecialchars($local_image_path) . ". Please check if the image was uploaded correctly.</em></p>";
+                $customer_image_html = $image_embed_error_customer;
+            }
         } else {
             $customer_image_html = "<p><em>Product image not available or could not be loaded.</em></p>";
         }
@@ -175,9 +215,9 @@ try {
                     " . $optional_fields_customer . "
                 </ul>
                 <hr style='border: 0; border-top: 1px solid #eee; margin: 20px 0;'>
-                <p>Our team will review your order and contact you shortly at " . htmlspecialchars($customer_phone) . " or " . htmlspecialchars($customer_email) . " to finalize the details.</p>
+                <p>Our team will review your order and contact you shortly at " . htmlspecialchars($customer_phone) . " or " . htmlspecialchars($customer_email) . " to finalize the order request</p>
                 <p>If you have any immediate questions, feel free to call or chat with us on WhatsApp at +250 783 420 067.</p>
-                <p>Regards,<br>Novostella Technologies Ltd</p>
+                <p>WELCOME,<br>Novostella Technologies Ltd</p>
             </body>
             </html>
         ";

@@ -37,7 +37,7 @@ header {
 }
 .logo span{
  cursor: pointer;
-font-family: 'Rangile', sans-serif;
+font-family: 'Waiting Summer', sans-serif;
 font-size: 1.2em;
 }
 .logo img {
@@ -437,7 +437,7 @@ font-size: 1.2em;
             position: fixed;
             top: 105px;
             left: 50%;
-            height: 105px;
+            height: 110px;
             transform: translateX(-50%);
             padding: 15px 30px;
             border-radius: 8px;
