@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+
+sitemap: https:novostellatechnologies.infy.uk/sitemap.xml 
