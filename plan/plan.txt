@@ -1,32 +1,67 @@
-DATABSE DESIGN
+DATABSE DESIGN  
 
-   Orders -- all the prodcts must be sent here 
-   comment or recommendation
-   Admin portal
-   Admin panel also can be crucial
-   
+ 
+Table1. Admin 
+ 
+admin_id
+admin_name
+admin_email
+admin_role
+admin_since
+
+Table2. Services
+
+ service_id
+ service_name
+
+Table3. Product
+
+product_id
+product_name
+product_price(If available)
+product description(If available)
+The products must be linked to some of the services(meaning have relationships) that have products in them(But not all the services have products)
+Table4. stamp_examples
+
+sample_id
+sampple_item
+samplle_description
+sample_category(Videos, images) but to explain all the samples in the sample table when the sample page is first viewed they will be in all but when user filters and see by videos the videos will appear alone again images like that
+The samples must be linked to acertain admin who uploaded that sample
+
+Table5. Orders
+
+order_id
+customer_name
+product_id(To specify the product being ordered)
+customer_address
+customer_phone
+Order_text
+The orders must contain the products to which they refer to
+
+Table6. Feedback
+
+feedback_id
+customer_email
+feedback_text
 
 
-Table relationships 
-  Admin 
-  Orders
-      orderes must be of different categories
-      The order will include the order type
-  Users of the site
-  comments and recommendations
+Table7. Linked_customers
+
+customer_name
+customer_email(If availble)
+customer_telephone(If available)
 
 
-  Next tomorrow
 
-  work on the t-shirts page
-        Add price
-        Add way to get the service
-        For the email form to use while applying on t-shirts we will include uplaod file and also the text to be written there if its the selection
-  Work on the audio pages
-       Add price
-       Add the way to get that service
-       Also remember to put that negotiations are available
+Admin panel design and the available options
+  
+  orders
+  Uplaod samples
+  Services
+  products
+  Linked_customers
 
 
-       After all this build an algorithm and code to handle all this fetching and sending of the data
-
+  Logout
+  Settings

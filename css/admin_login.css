@@ -1,0 +1,87 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: url('../images/Bold\ Orange\ and\ Blue\ Illustrated\ Online\ Marketing\ Presentation\(1\).png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #e0e0e0;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px; 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    width: 350px;
+    text-align: center;
+}
+.login-container h3 {
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #fff; 
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    transition: background 0.3s, transform 0.2s;
+    backdrop-filter: blur(5px);
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+.error-message {
+    background-color: rgba(255, 0, 0, 0.2); 
+    color: #fff;
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    backdrop-filter: blur(5px); 
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2); 
+}

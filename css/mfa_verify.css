@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../images/Bold\ orange\ --\ updated.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.mfa-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+}
+
+.novo_code {
+    color: #209400;
+    font-weight: 700;
+}
+
+p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+
+.mfa-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mfa-container input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.mfa-container input[type="text"]:focus {
+    border-color: #00ff2a;
+    outline: none;
+}
+
+.mfa-container button[type="submit"] {
+    background-color: #48515a;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.mfa-container button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.mfa-container span.note {
+    font-size: 0.8em;
+    color: #888;
+    display: block;
+    margin-top: 5px;
+}
+
+.error_message {
+    color: #dc3545;
+    font-weight: 500;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+    .mfa-container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+}

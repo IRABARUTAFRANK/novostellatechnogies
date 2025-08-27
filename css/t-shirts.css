@@ -202,7 +202,7 @@ font-size: 1.2em;
 }
 /* Styling for the Contact us button */
 .contact_us {
-    background-color: #25d366; /* WhatsApp green color */
+    background-image: linear-gradient(to right, rgb(0, 195, 209), rgb(211, 255, 204));
     color: white;
     font-size: 1em;
     font-weight: bold;

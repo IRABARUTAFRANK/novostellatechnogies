@@ -1,0 +1,123 @@
+.main-settings{
+    max-width: 1000px; /* Adjust this value as needed */
+    margin: 0 auto;  /* Centers the container horizontally */
+    padding: 1rem;   /* Adds some spacing on the sides */  
+}
+.content-area h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 2rem;
+}
+
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.settings-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.settings-card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4a4a4a;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.75rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #10d478;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(16, 212, 120, 0.2);
+}
+
+.settings-card button {
+    background-color: #10d478;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.settings-card button:hover {
+    background-color: #0d9b5c;
+    transform: translateY(-2px);
+}
+
+.message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.message.success {
+    background-color: #e6f7ea;
+    color: #28a745;
+    border: 1px solid #c8e6c9;
+}
+
+.message.error {
+    background-color: #fcebeb;
+    color: #dc3545;
+    border: 1px solid #f8c6c6;
+}
+.main-settings h1{
+    text-align: center;
+    margin-top: 2em;
+    font-family: 'BR Shape', sans-serif;
+}
+.copyright {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.5);
+}
+.copyright p{
+    text-align: center;
+    color: #555;
+    margin-top: 70px;
+}
+@media (max-width: 768px) {
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+}

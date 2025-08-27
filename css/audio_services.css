@@ -286,7 +286,7 @@ margin-right: 50px;
 .contact_us_button {
     display: inline-block;
     padding: 5px 15px;
-    background-color: #25D366; 
+    background-image: linear-gradient(to right, rgb(0, 195, 209), rgb(211, 255, 204));
     color: white;
     text-decoration: none; 
     border-radius: 5px;
@@ -299,7 +299,7 @@ margin-right: 50px;
 
 
 .contact_us_button:hover {
-    background-color: #128C7E; 
+    background-color: #3fb3a5; 
 }
 
 

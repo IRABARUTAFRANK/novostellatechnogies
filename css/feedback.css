@@ -1,0 +1,74 @@
+.feedback-container {
+    padding: 2rem;
+}
+
+.feedback-container h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'BR Shape', sans-serif;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+}
+
+.no-feedback-message {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.feedback-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 1.5rem; 
+}
+
+.feedback-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 22px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 900px; 
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+}
+
+.feedback-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.feedback-email {
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+}
+.copyright {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.5);
+}
+.copyright p{
+    text-align: center;
+    color: #555;
+    margin-top: 70px;
+}

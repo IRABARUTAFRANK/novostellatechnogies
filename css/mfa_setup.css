@@ -1,0 +1,132 @@
+/* Importing a Google Font for a modern look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Set a full-screen background image */
+    background-image: url('../images/Bold\ orange\ --\ updated.png'); /* REPLACE THIS URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensures the background stays in place */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+.bi-exclamation-triangle{
+    color: rgb(255, 102, 0);
+    font-size: 2em;
+}
+.mfa-container {
+    
+    background: rgba(255, 255, 255, 0.75);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+}
+
+.novo_code {
+    color: #2dc000;
+    font-weight: 700;
+}
+
+p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+p span {
+    font-weight: 600;
+    color: #2ca300;
+}
+
+.mfa-container img {
+    border: 5px solid #000000;
+    border-radius: 8px;
+    padding: 5px;
+    background: #fff;
+    margin: 20px 0;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.mfa-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mfa-container input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.mfa-container input[type="text"]:focus {
+    border-color: #7b7b79;
+    outline: none;
+}
+
+.mfa-container button[type="submit"] {
+    background-color: #49505c;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.mfa-container button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.mfa-container span.note {
+    font-size: 0.8em;
+    color: #888;
+    display: block;
+    margin-top: 5px;
+}
+
+.error_message {
+    color: #dc3545;
+    font-weight: 500;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+    .mfa-container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+}

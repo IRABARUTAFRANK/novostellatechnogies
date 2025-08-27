@@ -1,32 +1,3 @@
-/* CEO Section Styles */
-.ceo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 36px 0 0 0;
-    padding: 18px 0 0 0;
-}
-.ceo img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 4px 18px rgba(26,35,126,0.13);
-    border: 4px solid #fff;
-    background: #f5f7fa;
-    margin-bottom: 14px;
-}
-.ceo span {
-    font-size: 1.15rem;
-    color: #1a237e;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-align: center;
-    background: #f8f9fa;
-    padding: 6px 18px;
-    border-radius: 18px;
-    box-shadow: 0 2px 8px rgba(26,35,126,0.06);
-}
 * {
     margin: 0;
     padding: 0;
@@ -45,14 +16,19 @@ body {
 }
 
 header {
-    background-image: linear-gradient(to right, rgb(255, 248, 143), #fff);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background-image: linear-gradient(to right, rgb(255, 249, 159), #55fa46);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     padding: 0 0 10px 0;
-    height: 80px;
+    height: 100px;
     position: relative;
     z-index: 1000;
 }
-
+.curved-section {
+    position: relative;
+    background-image: linear-gradient(to right, rgb(255, 249, 159), #55fa46);
+    clip-path: ellipse(110% 100% at 50% 0%);
+    z-index: 1; 
+}
 .navbar {
     display: flex;
     align-items: center;
@@ -90,13 +66,14 @@ font-size: 1.2em;
 .nav-links ul li a {
     display: flex;
     text-decoration: none;
-    color: #222;
-    font-weight: 500;
+    color: #665e6c;
+    font-size: 1.1em;
+    font-weight: 550;
     transition: color 0.2s;
 }
 
 .nav-links ul li a:hover {
-    color: #1a237e;
+    color: #ffc400;
 }
 
 .nav-toggle {
@@ -121,8 +98,8 @@ font-size: 1.2em;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative; 
-    z-index: 1; 
+    position: relative;
+    z-index: 1;
 }
 
 .hero::before {
@@ -131,9 +108,10 @@ font-size: 1.2em;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;   
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: -1;
+    clip-path: ellipse(110% 100% at 50% 0%);
 }
 
 .hero-content {
@@ -525,6 +503,35 @@ font-size: 1.2em;
 #scrollToTopBtn:hover {
   transform: scale(1.2);
 }
+/* CEO Section Styles */
+.ceo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 36px 0 0 0;
+    padding: 18px 0 0 0;
+}
+.ceo img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 18px rgba(26,35,126,0.13);
+    border: 4px solid #fff;
+    background: #f5f7fa;
+    margin-bottom: 14px;
+}
+.ceo span {
+    font-size: 1.15rem;
+    color: #1a237e;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+    background: #f8f9fa;
+    padding: 6px 18px;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(26,35,126,0.06);
+}
 
 /* Feedback Form Container */
 .feedback-form-container {
@@ -752,13 +759,12 @@ font-size: 1.2em;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
-        /* Hide by default, animate open/close */
     }
     .logo span{
         font-size: 1.5em;
     }
     .nav-links.open ul {
-        max-height: 500px; /* Large enough for all links */
+        max-height: 500px; 
         padding: 20px 0;
         transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
     }
@@ -1006,8 +1012,8 @@ font-size: 1.2em;
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  background: #25d366;
-  color: #fff;
+  background-image: linear-gradient(to right, rgb(0, 195, 209), rgb(211, 255, 204));
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   padding: 0.5em 1.2em;
@@ -1023,7 +1029,7 @@ font-size: 1.2em;
     display: inline-flex;
     align-items: center;
     gap: 0.5em;
-    background: #25d366;
+    background: #82d325;
     color: #fff;
     border: none;
     border-radius: 5px;

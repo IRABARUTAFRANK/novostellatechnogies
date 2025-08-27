@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar-logo {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.sidebar-title {
+    font-weight: 700;
+    font-size: 1.4em;
+    color: #1a202c;
+}
+
+.sidebar-nav {
+    list-style: none;
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.sidebar-item {
+    padding: 0 20px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #4a5568;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-link i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-link:hover {
+    background-color: #e2e8f0;
+    color: #1a202c;
+}
+
+.sidebar-item.active .sidebar-link {
+    background-color: #10d478;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sidebar-item-divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 20px;
+}
+
+/*
+=================================
+MAIN CONTENT AREA
+=================================
+*/
+.main-content {
+    margin-left: 260px; /* Same as sidebar width */
+}
+
+.main-header {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.search-bar input {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1.1em;
+    width: 350px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.notification-icon {
+    position: relative;
+    font-size: 2.6rem;
+    color: #4a5568;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    background-color: #dc3545;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-weight: 600;
+    margin: 0;
+}
+
+.user-role {
+    color: #6c757d;
+}
+/*ANIMATE THE NST*/
+@keyframes placeholder-fade {
+    0% { opacity: 0; }       
+    5% { opacity: 1; }       
+    62.5% { opacity: 1; }     
+    67.5% { opacity: 0; }    
+    100% { opacity: 0; }   
+}
+
+.search-bar input[type="search"]::placeholder {
+    animation-name: placeholder-fade;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}

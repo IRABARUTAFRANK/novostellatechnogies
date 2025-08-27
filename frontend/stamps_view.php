@@ -66,7 +66,15 @@ session_start();
             </span>
         </span>
     </div>
-    <div class="correction_stamps" id="stamp-collection">
+    <div style="display: flex; justify-content: flex-end; align-items: center; margin: 20px 0 10px 0; gap: 10px;">
+        <button id="rowViewBtn" class="view-toggle active" title="Row View" style="padding: 6px 14px; border-radius: 4px; border: 1px solid #ccc; background: #f7f7f7; cursor:pointer;">
+            <i class="bi bi-view-list"></i> Row View
+        </button>
+        <button id="colViewBtn" class="view-toggle" title="Column View" style="padding: 6px 14px; border-radius: 4px; border: 1px solid #ccc; background: #f7f7f7; cursor:pointer;">
+            <i class="bi bi-grid-3x3-gap"></i> Column View
+        </button>
+    </div>
+    <div class="correction_stamps row-view" id="stamp-collection">
        <div class="stamp-item">
     <h2>Round shaped stamp</h2>
     <img src="../images/Round 5k.jpg" alt="Stamp Round shaped stamp" data-img-url="../images/Round 5k.jpg"> 
@@ -216,6 +224,27 @@ session_start();
             });
             window.location.href = `submit_email_order.php?${params.toString()}`;
         });
+
+        // View toggle logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const rowBtn = document.getElementById('rowViewBtn');
+        const colBtn = document.getElementById('colViewBtn');
+        const stampsContainer = document.getElementById('stamp-collection');
+        if (rowBtn && colBtn && stampsContainer) {
+            rowBtn.addEventListener('click', function() {
+                stampsContainer.classList.add('row-view');
+                stampsContainer.classList.remove('column-view');
+                rowBtn.classList.add('active');
+                colBtn.classList.remove('active');
+            });
+            colBtn.addEventListener('click', function() {
+                stampsContainer.classList.remove('row-view');
+                stampsContainer.classList.add('column-view');
+                colBtn.classList.add('active');
+                rowBtn.classList.remove('active');
+            });
+        }
+    });
     </script>
 </body>
 </html>

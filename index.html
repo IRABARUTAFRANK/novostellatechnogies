@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOVOSTELLA Technologies ltd</title>
-    <link rel="stylesheet" href="./css/index.css?v=110.0">
+    <link rel="stylesheet" href="./css/index.css?v=131.0">
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
     <link href="https://fonts.cdnfonts.com/css/agbalumo" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/rangile" rel="stylesheet">
@@ -22,28 +22,31 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="./index.html">Home</a></li>
+                    <li><a href="#products">Samples</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#about_contacts">About & Contacts</a></li>
+                    <li><a href="#about_contacts">About us</a></li>
                     <li><a href="#location">Location</a></li>
                 </ul>
             </div>
             <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
         </nav>
     </header>
-    <section class="hero" id="home">
+   <section class="curved-section">
+    <div class="hero" id="home">
         <div class="hero-content">
             <h1>WELCOME TO, <span class="Welcome-design">Novostella Technologies Ltd</span></h1>
             <p>Novostella Technologies limited is a company that is specialised to give you with access to all computer and tech services that we encounter in our daily schedule of the day. Visit us on <a href="https://novostellatechnologies.infy.uk" style="color: rgb(255, 159, 32); text-decoration: none;">NST</a></p>
             <a href="#services" class="cta-btn">Get started<i class="bi bi-arrow-right-circle-fill"></i></a>
         </div>
-    </section>
+    </div>
+</section>
     <section class="products" id="products">
         
     </section>
    <section class="features" id="services">
      <h2>Our Services</h2>
      <div class="service-grid">
-       <div class="service-card" data-img="./images/cachet.png">
+       <div class="service-card" data-img="./images/cachet.png" data-link="./frontend/stamps_view.php">
          <img src="./images/All Stams.jpg" alt="Stamp and logo">
          <span>stamps and Logo</span>
          <p>Custom stamps and logos designed and printed professionally for official use. <strong class="stamp_examples">eg: business stamps, bank stamps, etc</strong></p>
@@ -85,13 +88,13 @@
          <p>High-quality installation of CCTV systems for homes and businesses(Factories, schools, hospitals and also security agencies etc.....).</p>
          <button class="whatsapp-order-btn" data-service="CCTV installation">Contact us <i class="bi bi-whatsapp"></i></button>
        </div>
-       <div class="service-card" data-img="./images/t-shirt.png">
+       <div class="service-card" data-img="./images/t-shirt.png" data-link="./frontend/t-shirts.html">
          <img src="./images/t-shirt.png" alt="T-shirt Sticker Printing">
          <span>On T-Shirt Photo printing</span>
          <p>Creative Photo printing on T-Shirts, Uniforms, and custom wearables. <strong class="t-shirts">eg: on funeral t-shirts, wedding t-shirts, events t-shirts, etc..... </strong></p>
          <button class="t-shirt-direct-button" id="t-shirt" data-service="Sticker on T-shirt Printing"> View more <i class="bi bi-arrow-right"></i></button>
        </div>
-       <div class="service-card" data-img="./images/video.png">
+       <div class="service-card" data-img="./images/video.png" data-link="./frontend/audio_services.html">
          <img src="./images/video.png" alt="Audio and video production">
          <span>Audio Production</span>
          <p>Professional audio production ( Beats making, recording, mixing and mastering)</p>
@@ -112,7 +115,7 @@
          </ul>
          <button class="whatsapp-order-btn" data-service="Video production">Contact us <i class="bi bi-whatsapp"></i></button>
        </div>
-         <div class="service-card" data-img="./images/repair.jpeg">
+         <div class="service-card" data-img="./images/repair.jpeg" id="computer-repair-card">
          <img src="./images/repair.jpeg" alt="Computer repairing Services">
          <span>Computer repair</span>
          <p>Professional computer repair services including troubleshooting, hardware replacement, and software installation. </p>
@@ -193,8 +196,8 @@
 <div id="feedbackFormContainer" class="feedback-form-container">
   <h4>Recommend or comment</h4>
   <form id="feedbackForm" method="POST">
-    <input type="email" name="email" placeholder="Email address" required>
-    <textarea name="comment" placeholder="What you recommend or comment..." rows="3" required></textarea>
+    <input type="email" name="customer_email" placeholder="Email address" required>
+    <textarea name="feedback_text" placeholder="What you recommend or comment..." rows="3" required></textarea>
     <button type="submit">Recommend or comment</button>
   </form>
 </div>
@@ -395,14 +398,14 @@
   e.preventDefault();
 
   const formData = new FormData(feedbackForm);
-  const email = formData.get('email');
-  const comment = formData.get('comment');
+  const customer_email = formData.get('customer_email');
+  const feedback_text = formData.get('feedback_text');
 
   try {
     const res = await fetch('./backend/feedback.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, comment })
+      body: JSON.stringify({ customer_email, feedback_text })
     });
 
     const data = await res.json();
@@ -421,6 +424,7 @@
   }
 });
 </script>
+
 <script>
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -449,6 +453,50 @@
         window.location.href = './frontend/stamps_view.php';
       });
     }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  
+    const computerRepairCard = document.getElementById('computer-repair-card');
+    const computerRepairBtn = computerRepairCard ? computerRepairCard.querySelector('.computer_repair') : null;
+    const popupOverlay = document.getElementById('popup-overlay');
+
+    if (computerRepairCard && popupOverlay) {
+      computerRepairCard.style.cursor = 'pointer';
+      computerRepairCard.addEventListener('click', function(e) {
+       
+        if (e.target.classList.contains('whatsapp-order-btn')) return;
+        popupOverlay.classList.add('active');
+      });
+    }
+    if (computerRepairBtn && popupOverlay) {
+      computerRepairBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        popupOverlay.classList.add('active');
+      });
+    }
+
+    
+    document.querySelectorAll('.service-card[data-link]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function(e) {
+      
+        if (e.target.tagName.toLowerCase() === 'button') return;
+        const url = card.getAttribute('data-link');
+        if (url) window.location.href = url;
+      });
+      
+      const btn = card.querySelector('button');
+      if (btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const url = card.getAttribute('data-link');
+          if (url) window.location.href = url;
+        });
+      }
+    });
+
   });
 </script>
 </body>
