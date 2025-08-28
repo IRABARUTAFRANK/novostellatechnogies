@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once 'connection.php';
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -12,19 +14,6 @@ require __DIR__ . '/../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
-
-$host = "sql211.infinityfree.com";
-$user = "if0_39552079";
-$pass = "frabenber123";
-$dbname = "if0_39552079_novostella_technologies";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    $_SESSION['message'] = "Database connection failed! Please try again later.";
-    $_SESSION['status'] = "error";
-    header("Location: ../frontend/stamps_view.php");
-    exit;
-}
 
 try {
     $customer_name = trim($_POST['customer_name'] ?? '');

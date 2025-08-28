@@ -2,6 +2,11 @@
 
 require_once '../backend/connection.php'; 
 
+if(!isset($_SESSION['admin_id'])){
+    header("Location: admin_login_1002.php");
+    exit();
+}
+
 $feedback_data = [];
 
 $sql = "SELECT feedback_id, customer_email, feedback_text FROM Feedback ORDER BY feedback_id DESC";

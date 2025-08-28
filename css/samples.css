@@ -1,0 +1,251 @@
+   *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            font-family: sans-serif;
+        }
+        header {
+    background-image: linear-gradient(to right, rgb(255, 248, 143), #fff);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    height: 80px;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px 0 30px;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a237e;
+}
+.logo span{
+ cursor: pointer;
+font-family: 'Waiting Summer', sans-serif;
+font-size: 1.2em;
+}
+.logo img {
+    cursor: pointer;
+    height: 40px;
+    margin-right: 12px;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links ul li a {
+    display: flex;
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links ul li a:hover {
+    color: #1a237e;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: #222;
+    cursor: pointer;
+    z-index: 1001;
+}
+.samples-section {
+    padding: 3rem 1rem;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.samples-title {
+    font-size: 2.5rem;
+    color: #009600;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bolder;
+}
+
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 10px 25px;
+    border: 2px solid #00c03a;
+    border-radius: 50px;
+    background-color: transparent;
+    color: #00c03a;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background-color: #00c03a;
+    color: #fff;
+}
+
+.sample-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.sample-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.sample-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.sample-item img,
+.sample-item video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.sample-item:hover img,
+.sample-item:hover video {
+    transform: scale(1.05);
+}
+
+.sample-info {
+    padding: 1.5rem 1rem;
+}
+.sample-info p {
+    font-size: 1.1rem;
+    color: #1c1b1c;
+    font-weight: bold;
+    font-family: 'Familjen Grotesk', sans-serif                          
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    overflow-y: auto; 
+}
+
+.popup-content {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-media-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popup-media-container img,
+.popup-media-container video {
+    max-width: 100%;
+    max-height: 70vh;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Description and Title */
+.popup-description {
+    text-align: center;
+}
+
+.popup-description h3 {
+    font-size: 1.8rem;
+    color: #1a237e;
+    margin-bottom: 10px;
+}
+
+.popup-description p {
+    font-size: 1.1rem;
+    color: #665e6c;
+}
+
+/* Close Button */
+.close-popup-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2.5rem;
+    color: #00ff95;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-popup-btn:hover {
+    color: #fff;
+}
+footer {
+    background-color: #343e4b;
+    color: white;
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.5);
+} 
+@media screen {
+    
+}

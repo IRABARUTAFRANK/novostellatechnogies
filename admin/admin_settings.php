@@ -1,6 +1,10 @@
 <?php
-// Note: This file is included in another, so it doesn't need its own security check or session start.
-// It relies on the including file to handle that.
+
+if(!isset($_SESSION['admin_id'])){
+    header("Location: admin_login_1002.php");
+    exit();
+}
+
 ?>
 
 <div class="main-settings">

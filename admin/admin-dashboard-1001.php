@@ -3,7 +3,7 @@ session_start();
 require_once '../backend/connection.php';
 
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: admin_login_1002.html");
+    header("Location: admin_login_1002.php");
     exit();
 }
 
@@ -13,7 +13,7 @@ $admin_role = $_SESSION['admin_role'];
 $message = '';
 $message_type = '';
 
-// --- Process Change Password Form ---
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_password'])) {
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];
@@ -117,7 +117,7 @@ if (isset($_GET['page'])) {
             $content_file = 'feedback_content.php';
             break;
         case 'samples':
-            $content_file = 'samples_content.php';
+            $content_file = 'admin_samples.php';
             break;
         default:
             $content_file = 'dashboard_content.php';
@@ -136,11 +136,16 @@ if (isset($_GET['page'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/admin.css?v=9.0">
     <link href="https://fonts.cdnfonts.com/css/br-shape" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/bagel-fat-one" rel="stylesheet">
     <?php if (isset($_GET['page']) && $_GET['page'] == 'settings'): ?>
         <link rel="stylesheet" href="../css/settings.css?v=1.0">
     <?php endif; ?>
     <?php if (isset($_GET['page']) && $_GET['page'] == 'feedback'): ?>
         <link rel="stylesheet" href="../css/feedback.css?v=6.0">
+    <?php endif; ?>
+    <?php if (isset($_GET['page']) && $_GET['page'] == 'samples'): ?>
+        <link rel="stylesheet" href="../css/admin_samples.css?v=3.0">
+        <script src="../js/admin_samples.js"></script>
     <?php endif; ?>
 </head>
 <body>
@@ -152,13 +157,13 @@ if (isset($_GET['page'])) {
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item active">
-                <a href="#" class="sidebar-link">
+                <a href="?page=dashboard" class="sidebar-link">
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="?page=orders" class="sidebar-link">
                     <span>Orders</span>
                 </a>
             </li>
@@ -168,12 +173,12 @@ if (isset($_GET['page'])) {
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="?page=services" class="sidebar-link">
                     <span>Services</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="?page=products" class="sidebar-link">
                     <span>Products</span>
                 </a>
             </li>
@@ -183,7 +188,7 @@ if (isset($_GET['page'])) {
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="?page=linked_customers" class="sidebar-link">
                     <span>Linked customers</span>
                 </a>
             </li>
