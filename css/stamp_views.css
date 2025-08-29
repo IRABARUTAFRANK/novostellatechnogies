@@ -183,19 +183,10 @@ font-size: 1.2em;
     color: rgb(161, 0, 81);
 }
 /* Stamps Grid */
-/*.correction_stamps {
+.correction_stamps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 5.5rem;
-    max-width: 1400px;
-    margin: 0 auto 60px auto;
-    padding: 0 20px;
-}*/
-.correction_stamps {
-    /* Remove the default grid styles here */
-    display: block;
-    grid-template-columns: none;
-    gap: 0;
     max-width: 1400px;
     margin: 0 auto 60px auto;
     padding: 0 20px;
@@ -246,7 +237,7 @@ font-size: 1.2em;
 }
 
 .stamp-item button {
-    background: #ffd900;
+    background: #00b80f;
     color: #fff;
     border: none;
     border-radius: 22px;
@@ -676,47 +667,5 @@ font-size: 1.2em;
 .modal-content button{
     font-size: 1em;
 }
-}
-.correction_stamps.row-view {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-.correction_stamps.column-view {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
-}
-.correction_stamps .stamp-item {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: box-shadow 0.2s;
-}
-.correction_stamps.row-view .stamp-item {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 24px;
-}
-.correction_stamps.row-view .stamp-item img {
-    width: 110px;
-    height: auto;
-    margin-right: 18px;
-}
-.correction_stamps.column-view .stamp-item img {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    margin-bottom: 10px;
-}
-.view-toggle.active {
-    background: #ffe066;
-    border-color: #ffe066;
-    font-weight: bold;
 }
 

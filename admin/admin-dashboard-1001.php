@@ -135,6 +135,7 @@ if (isset($_GET['page'])) {
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/admin.css?v=9.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.cdnfonts.com/css/br-shape" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/bagel-fat-one" rel="stylesheet">
     <?php if (isset($_GET['page']) && $_GET['page'] == 'settings'): ?>
@@ -146,6 +147,9 @@ if (isset($_GET['page'])) {
     <?php if (isset($_GET['page']) && $_GET['page'] == 'samples'): ?>
         <link rel="stylesheet" href="../css/admin_samples.css?v=3.0">
         <script src="../js/admin_samples.js"></script>
+    <?php endif; ?>
+        <?php if (isset($_GET['page']) && $_GET['page'] == 'orders'): ?>
+        <link rel="stylesheet" href="../css/orders_content.css?v=3.0">
     <?php endif; ?>
 </head>
 <body>

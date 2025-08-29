@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stamp correction | Novostella Technologies Ltd</title>
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/stamp_views.css?v=100.0">
+    <link rel="stylesheet" href="../css/stamp_views.css?v=110.0">
     <link href="https://fonts.cdnfonts.com/css/texturina" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/waiting-summer" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -66,72 +66,52 @@ session_start();
             </span>
         </span>
     </div>
-    <div style="display: flex; justify-content: flex-end; align-items: center; margin: 20px 0 10px 0; gap: 10px;">
-        <button id="rowViewBtn" class="view-toggle active" title="Row View" style="padding: 6px 14px; border-radius: 4px; border: 1px solid #ccc; background: #f7f7f7; cursor:pointer;">
-            <i class="bi bi-view-list"></i> Row View
-        </button>
-        <button id="colViewBtn" class="view-toggle" title="Column View" style="padding: 6px 14px; border-radius: 4px; border: 1px solid #ccc; background: #f7f7f7; cursor:pointer;">
-            <i class="bi bi-grid-3x3-gap"></i> Column View
-        </button>
-    </div>
-    <div class="correction_stamps row-view" id="stamp-collection">
+    <div class="correction_stamps" id="stamp-collection">
        <div class="stamp-item">
     <h2>Round shaped stamp</h2>
-    <img src="../images/Round 5k.jpg" alt="Stamp Round shaped stamp" data-img-url="../images/Round 5k.jpg"> 
+    <img src="../images/Round_5k.jpg" alt="Stamp Round shaped stamp" data-img-url="../images/Round 5k.jpg"> 
     <span id="price">Price: <strong id="price-value">5,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
     <button>Order now</button>
 </div>
 <div class="stamp-item">
     <h2>Rectangle shaped stamp</h2>
-    <img src="../images/Rectangle 5k.jpg" alt="Stamp Rectangle shaped stamp" data-img-url="../images/Rectangle 5k.jpg"> 
+    <img src="../images/Rectangle_5k.jpg" alt="Stamp Rectangle shaped stamp" data-img-url="../images/Rectangle 5k.jpg"> 
     <span id="price">Price: <strong id="price-value">5,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
     <button>Order now</button>
 </div>
 <div class="stamp-item">
     <h2>Oval shaped stamp</h2>
-    <img src="../images/Ovale 5k.jpg" alt="Stamp Oval shaped stamp" data-img-url="../images/Ovale 5k.jpg"> 
+    <img src="../images/Ovale_5k.jpg" alt="Stamp Oval shaped stamp" data-img-url="../images/Ovale 5k.jpg"> 
     <span id="price">Price: <strong id="price-value">5,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
     <button>Order now</button>
 </div>
 <div class="stamp-item">
     <h2>Round shaped stamp</h2>
-    <img src="../images/Round 15k.jpg" alt="Stamp Round shaped stamp" data-img-url="../images/Round 15k.jpg"> 
+    <img src="../images/round_15k.jpg" alt="Stamp Round shaped stamp" data-img-url="../images/Round 15k.jpg"> 
     <span id="price">Price: <strong id="price-value">15,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
     <button>Order now</button>
 </div>
 <div class="stamp-item">
     <h2>Oval shaped stamp</h2>
-    <img src="../images/Oval 15k.jpg" alt="Stamp Oval shaped stamp" data-img-url="../images/Oval 15k.jpg"> 
+    <img src="../images/Oval_15k.jpg" alt="Stamp Oval shaped stamp" data-img-url="../images/Oval 15k.jpg"> 
     <span id="price">Price: <strong id="price-value">15,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
     <button>Order now</button>
 </div>
 <div class="stamp-item">
     <h2>Rectangle shaped stamp</h2>
-    <img src="../images/Rectangle 15k.jpg" alt="Stamp Rectangle shaped stamp" data-img-url="../images/Rectangle 15k.jpg"> 
+    <img src="../images/Rectangle_15k.jpg" alt="Stamp Rectangle shaped stamp" data-img-url="../images/Rectangle 15k.jpg"> 
     <span id="price">Price: <strong id="price-value">15,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
     <button>Order now</button>
 </div>
 <div class="stamp-item">
     <h2>Doctor stamps</h2>
-    <img src="../images/Dr Stamp 12 k.jpg" alt="Stamp Doctor stamps" data-img-url="../images/Dr Stamp 12 k.jpg"> 
+    <img src="../images/Dr_Stamp_12k.jpg" alt="Stamp Doctor stamps" data-img-url="../images/Dr Stamp 12 k.jpg"> 
     <span id="price">Price: <strong id="price-value">12,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
     <button>Order now</button>
 </div>
 <div class="stamp-item">
     <h2>Doctor stamps</h2>
-    <img src="../images/Dr Stamp 15k.jpg" alt="Stamp Doctor stamps" data-img-url="../images/Dr Stamp 15k.jpg"> 
-    <span id="price">Price: <strong id="price-value">15,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
-    <button>Order now</button>
-</div>
-<div class="stamp-item">
-    <h2>Rectangular stamps</h2>
-    <img src="../images/10k.JPG" alt="Stamp Rectangular stamps" data-img-url="../images/10k.JPG"> 
-    <span id="price">Price: <strong id="price-value">10,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
-    <button>Order now</button>
-</div>
-<div class="stamp-item">
-    <h2>Rectangular stamps</h2>
-    <img src="../images/15k (2).JPG" alt="Stamp Rectangular stamps" data-img-url="../images/15k (2).JPG"> 
+    <img src="../images/Dr_Stamp_15k.jpg" alt="Stamp Doctor stamps" data-img-url="../images/Dr Stamp 15k.jpg"> 
     <span id="price">Price: <strong id="price-value">15,000 RWF <i class="bi bi-arrow-up" style="color: rgb(207, 207, 0);"></i><i class="bi bi-arrow-down" style="color: rgb(255, 0, 0);"></i></strong></span>
     <button>Order now</button>
 </div>
@@ -224,27 +204,6 @@ session_start();
             });
             window.location.href = `submit_email_order.php?${params.toString()}`;
         });
-
-        // View toggle logic
-    document.addEventListener('DOMContentLoaded', function() {
-        const rowBtn = document.getElementById('rowViewBtn');
-        const colBtn = document.getElementById('colViewBtn');
-        const stampsContainer = document.getElementById('stamp-collection');
-        if (rowBtn && colBtn && stampsContainer) {
-            rowBtn.addEventListener('click', function() {
-                stampsContainer.classList.add('row-view');
-                stampsContainer.classList.remove('column-view');
-                rowBtn.classList.add('active');
-                colBtn.classList.remove('active');
-            });
-            colBtn.addEventListener('click', function() {
-                stampsContainer.classList.remove('row-view');
-                stampsContainer.classList.add('column-view');
-                colBtn.classList.add('active');
-                rowBtn.classList.remove('active');
-            });
-        }
-    });
     </script>
 </body>
 </html>

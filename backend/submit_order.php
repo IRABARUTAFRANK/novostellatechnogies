@@ -21,7 +21,7 @@ try {
     $customer_address = trim($_POST['customer_address'] ?? '');
     $customer_email = filter_var($_POST['customer_email'] ?? '', FILTER_SANITIZE_EMAIL);
     $product_ordered = trim($_POST['product_ordered'] ?? '');
-    $order_datetime = trim($_POST['order_datetime'] ?? 'N/A');
+    $order_datetime = date('Y-m-d H:i:s');
     $product_image_url_relative = filter_var($_POST['product_image_url'] ?? '', FILTER_SANITIZE_URL);
     $business_name = trim($_POST['business_name'] ?? '');
     $tin = trim($_POST['tin'] ?? '');
