@@ -35,7 +35,7 @@
     <div class="hero" id="home">
         <div class="hero-content">
             <h1>WELCOME TO, <span class="Welcome-design">Novostella Technologies Ltd</span></h1>
-            <p>Novostella Technologies limited is a company that is specialised to give you with access to all computer and tech services that we encounter in our daily schedule of the day. Visit us on <a href="https://novostellatechnologies.infy.uk" style="color: rgb(255, 159, 32); text-decoration: none;">NST</a></p>
+            <p>Novostella Technologies limited is a company that is specialised to give you with access to all computer and tech services that we encounter in our daily life. Visit us on <a href="https://novostellatechnologies.infy.uk" style="color: rgb(255, 159, 32); text-decoration: none;">NST</a></p>
             <a href="#services" class="cta-btn">Get started<i class="bi bi-arrow-right-circle-fill"></i></a>
         </div>
     </div>
@@ -118,7 +118,13 @@
          <div class="service-card" data-img="./images/repair.jpeg" id="computer-repair-card">
          <img src="./images/repair.jpeg" alt="Computer repairing Services">
          <span>Computer repair</span>
-         <p>Professional computer repair services including troubleshooting, hardware replacement, and software installation. </p>
+         <p>Operating System installation
+Diagnostics and Troubleshooting
+Virus removal
+Hardware Repairs:
+Broken Laptop screen 
+Data Backup and Recovery
+Annual Maintenance Contract </p>
         <button class="computer_repair" data-service="Computer repair">More details <i class="bi bi-arrow-down"></i></button>
        </div>
          <div class="service-card service-card-hidden" data-img="./images/logo.png" >
@@ -397,7 +403,7 @@
   feedbackForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const formData = new FormData(feedbackForm);
+  const formData = new FormxData(feedbackForm);
   const customer_email = formData.get('customer_email');
   const feedback_text = formData.get('feedback_text');
 

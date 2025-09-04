@@ -1,0 +1,8 @@
+Caught Throwable in submit_order.php: 2025-08-31 18:43:06
+Error: Class "PHPMailer\PHPMailer\PHPMailer" not found
+File: C:\xampp\htdocs\novostella\backend\submit_order.php Line: 85
+--------------------------------------------------
+Caught Throwable in submit_order.php: 2025-08-31 19:45:43
+Error: Class "PHPMailer\PHPMailer\PHPMailer" not found
+File: C:\xampp\htdocs\novostella\backend\submit_order.php Line: 85
+--------------------------------------------------

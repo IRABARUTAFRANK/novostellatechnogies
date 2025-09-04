@@ -1,18 +1,39 @@
 <?php
+session_start();
+header('Content-Type: application/json');
 
 require_once 'connection.php';
 
-$sample_id = $_POST['sample_id'];
+$response = ['success' => false, 'message' => 'An unknown error occurred.'];
 
-$sql_delete = "DELETE FROM Samples WHERE sample_id=?";
-$stmt_delete = $conn->prepare($sql_delete);
-$stmt_delete->bind_param("i", $sample_id);
-
-if ($stmt_delete->execute()) {
-    echo "Sample deleted successfully!";
-} else {
-    echo "Error: " . $stmt_delete->error;
+if (!isset($_SESSION['admin_id'])) {
+    $response['message'] = 'Unauthorized access.';
+    echo json_encode($response);
+    exit();
 }
-$stmt_delete->close();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $sample_id = $_POST['sample_id'] ?? null;
+    $action = $_POST['action'] ?? null;
+
+    if ($action === 'delete' && $sample_id) {
+        $stmt = $conn->prepare("DELETE FROM samples WHERE sample_id = ?");
+        $stmt->bind_param("i", $sample_id);
+
+        if ($stmt->execute()) {
+            $response['success'] = true;
+            $response['message'] = 'Sample deleted successfully!';
+        } else {
+            $response['message'] = "Error deleting sample: " . $stmt->error;
+        }
+        $stmt->close();
+    } else {
+        $response['message'] = 'Invalid request parameters.';
+    }
+} else {
+    $response['message'] = 'Invalid request method.';
+}
+
 $conn->close();
+echo json_encode($response);
 ?>

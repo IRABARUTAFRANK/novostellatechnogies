@@ -2,12 +2,7 @@
 
 require_once 'connection.php';
 
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-
-
-
-$sql = "SELECT sample_id, sample_item, sample_description, sample_category FROM Samples ORDER BY sample_id DESC";
+$sql = "SELECT sample_id, sample_item, sample_description, sample_category FROM samples ORDER BY sample_id DESC";
 $result = $conn->query($sql);
 
 $samples = [];

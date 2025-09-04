@@ -5,6 +5,8 @@ require_once '../vendor/autoload.php';
 
 use OTPHP\TOTP;
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 if (!isset($_SESSION['pending_admin_id'])) {
     header("Location: ../admin/admin_login_1002.php");

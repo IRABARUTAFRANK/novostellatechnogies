@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin_id'])){
 
 $feedback_data = [];
 
-$sql = "SELECT feedback_id, customer_email, feedback_text FROM Feedback ORDER BY feedback_id DESC";
+$sql = "SELECT feedback_id, customer_email, feedback_text FROM feedback ORDER BY feedback_id DESC";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -41,9 +41,9 @@ $conn->close();
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-            <div class="copyright">
+</div>
+    <div class="copyright">
             <p>&copy; 2025 Novostella Technologies. All rights reserved.</p>
         </div>
-</div>
 
 </div>

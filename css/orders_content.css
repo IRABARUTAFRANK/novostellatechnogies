@@ -1,4 +1,12 @@
-        .container {
+   :root {
+            --primary-color: #46dc00;
+            --secondary-color: #05ba7b;
+            --accent-color: #e74c3c;
+            --background-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+.container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -9,7 +17,6 @@
             margin-bottom: 40px;
             font-size: 2.5em;
         }
-
         .orders-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

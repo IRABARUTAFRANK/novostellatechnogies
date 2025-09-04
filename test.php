@@ -3,291 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Products</title>
+    <title>Your Developer Portfolio</title>
     <style>
-        /* css/admin.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 20px;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-h1 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-h2 {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
+        .hero p {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
 
-th, td {
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    text-align: left;
-    transition: background-color 0.3s;
-}
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-th {
-    background-color: #007bff;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 8px 30px rgba(238, 90, 36, 0.3);
+        }
 
-tr:hover {
-    background-color: #f1f1f1;
-}
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
 
-.product-image {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-}
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
 
-form {
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
 
-label {
-    font-weight: bold;
-    color: #555;
-}
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+        }
 
-input[type="text"], 
-input[type="number"], 
-textarea, 
-select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
-}
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
 
-input[type="text"]:focus, 
-input[type="number"]:focus, 
-textarea:focus, 
-select:focus {
-    border-color: #007bff;
-    outline: none;
-}
+        .skill-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
 
-.add-button {
-    padding: 12px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
 
-.add-button:hover {
-    background-color: #218838;
-}
+        .skill-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
 
-.message {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-}
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
 
-.success {
-    background-color: #28a745;
-}
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-.error {
-    background-color: #dc3545;
-}
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
 
-/* Flexbox for the page layout */
-.admin-content {
-    display: flex;
-    flex-direction: column;
-}
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+        }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-    tr {
-        margin-bottom: 15px;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-    }
-    td {
-        border: none;
-        position: relative;
-        padding-left: 50%;
-        text-align: right;
-    }
-    td:before {
-        position: absolute;
-        left: 6px;
-        content: attr(data-label);
-        font-weight: bold;
-        text-align: left;
-        color: #007bff;
-    }
-    .product-image {
-        float: left;
-        margin-right: 15px;
-    }
-}
-    </style>
-<body>
-    <div class="container">
-        <h1>Admin Dashboard</h1>
+        .project-content {
+            padding: 25px;
+        }
 
-        <?php
-        require_once './backend/connection.php';
+        .project-content h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
 
-        // Check for success or error message from POST submission
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_name'])) {
-            $product_name = $conn->real_escape_string($_POST['product_name']);
-            $product_price = $conn->real_escape_string($_POST['product_price']);
-            $product_description = $conn->real_escape_string($_POST['product_description']);
-            $image_url = $conn->real_escape_string($_POST['image_url']);
-            $service_id = $conn->real_escape_string($_POST['service_id']);
+        .coffee-section {
+            background: linear-gradient(135deg, #c0392b 0%, #8e44ad 100%);
+            color: white;
+            text-align: center;
+        }
 
-            $sql_insert = "INSERT INTO Products (product_name, product_price, product_description, image_url, service_id) 
-                           VALUES ('$product_name', '$product_price', '$product_description', '$image_url', '$service_id')";
+        .coffee-section h2 {
+            color: white;
+        }
+
+        .coffee-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+        }
+
+        .price-tag {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
             
-            if ($conn->query($sql_insert) === TRUE) {
-                echo "<div class='message success'>New product added successfully!</div>";
-            } else {
-                echo "<div class='message error'>Error: " . $conn->error . "</div>";
+            .hero p {
+                font-size: 1.1em;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 25px;
             }
         }
-        ?>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>John Developer</h1>
+            <p>Full-Stack Developer | Problem Solver | Code Enthusiast</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#coffee" class="btn btn-secondary">☕ Buy Me a Coffee</a>
+            </div>
+        </div>
 
-        <div class="admin-content">
-            <section class="current-products">
-                <h2>Current Products</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                            <th>Service</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $sql_select = "SELECT p.product_id, p.product_name, p.product_price, p.product_description, p.image_url, s.service_name 
-                                       FROM Products p
-                                       JOIN Services s ON p.service_id = s.service_id
-                                       ORDER BY p.product_id DESC";
-                        $result = $conn->query($sql_select);
-                        
-                        if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                echo "<tr>";
-                                echo "<td data-label='ID'>" . $row["product_id"] . "</td>";
-                                echo "<td data-label='Image'><img src='" . htmlspecialchars($row["image_url"]) . "' alt='" . htmlspecialchars($row["product_name"]) . "' class='product-image'></td>";
-                                echo "<td data-label='Name'>" . htmlspecialchars($row["product_name"]) . "</td>";
-                                echo "<td data-label='Price'>" . htmlspecialchars(number_format($row["product_price"], 2)) . " RWF</td>";
-                                echo "<td data-label='Description'>" . htmlspecialchars($row["product_description"]) . "</td>";
-                                echo "<td data-label='Service'>" . htmlspecialchars($row["service_name"]) . "</td>";
-                                echo "</tr>";
-                            }
-                        } else {
-                            echo "<tr><td colspan='6'>No products found.</td></tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </section>
+        <!-- Skills Section -->
+        <div class="section">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Frontend</h3>
+                    <p>React, Vue.js, HTML5, CSS3, JavaScript, TypeScript</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Backend</h3>
+                    <p>Node.js, Python, Java, PostgreSQL, MongoDB</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Others</h3>
+                    <p>Git, Docker, AWS, Figma, Agile Development</p>
+                </div>
+            </div>
+        </div>
 
-            <section class="add-product">
-                <h2>Add a New Product</h2>
-                <form action="admin_products.php" method="POST">
-                    <label for="product_name">Product Name:</label>
-                    <input type="text" id="product_name" name="product_name" required>
-                    
-                    <label for="product_price">Price (RWF):</label>
-                    <input type="number" id="product_price" name="product_price" step="0.01" required>
-                    
-                    <label for="product_description">Description:</label>
-                    <textarea id="product_description" name="product_description" rows="4" required></textarea>
+        <!-- Projects Section -->
+        <div class="section" id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🚀 E-Commerce Platform</div>
+                    <div class="project-content">
+                        <h3>Modern E-Commerce Site</h3>
+                        <p>Full-stack e-commerce solution with React frontend, Node.js backend, and integrated payment processing.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📱 Task Manager App</div>
+                    <div class="project-content">
+                        <h3>Productivity Dashboard</h3>
+                        <p>React-based task management application with real-time updates and team collaboration features.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🤖 AI Chat Bot</div>
+                    <div class="project-content">
+                        <h3>Customer Service Bot</h3>
+                        <p>Intelligent chatbot using Python and NLP libraries to provide automated customer support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <label for="image_url">Image URL:</label>
-                    <input type="text" id="image_url" name="image_url" required>
-                    
-                    <label for="service_id">Related Service:</label>
-                    <select id="service_id" name="service_id" required>
-                        <?php
-                        $services_sql = "SELECT service_id, service_name FROM Services";
-                        $services_result = $conn->query($services_sql);
+        <!-- Buy Me a Coffee Section -->
+        <div class="section coffee-section" id="coffee">
+            <h2>Support My Work</h2>
+            <div class="coffee-card">
+                <h3>☕ Buy Me a Coffee</h3>
+                <p>Enjoying my projects? Support my continued development and learning!</p>
+                <div class="price-tag">$5</div>
+                <button class="btn btn-primary" onclick="showSupportMessage()">Support Now</button>
+                <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                    Your support helps me dedicate more time to open-source projects and learning new technologies!
+                </p>
+            </div>
+        </div>
 
-                        if ($services_result->num_rows > 0) {
-                            while($service_row = $services_result->fetch_assoc()) {
-                                echo "<option value='" . $service_row['service_id'] . "'>" . $service_row['service_name'] . "</option>";
-                            }
-                        } else {
-                            echo "<option value=''>No services found</option>";
-                        }
-                        $conn->close();
-                        ?>
-                    </select>
-                    
-                    <button type="submit" class="add-button">Add Product</button>
-                </form>
-            </section>
+        <!-- About Section -->
+        <div class="section">
+            <h2>About Me</h2>
+            <p style="font-size: 1.2em; line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto;">
+                I'm a passionate developer who loves creating solutions that make a difference. With experience in both frontend and backend technologies, I enjoy building full-stack applications that solve real-world problems. I'm always learning and excited to take on new challenges!
+            </p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section contact">
+            <h2>Let's Connect</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Ready to work together or just want to say hi?</p>
+            <div class="social-links">
+                <a href="mailto:your.email@example.com" class="social-link">📧 Email</a>
+                <a href="#" class="social-link">💼 LinkedIn</a>
+                <a href="#" class="social-link">🐱 GitHub</a>
+                <a href="#" class="social-link">🐦 Twitter</a>
+            </div>
         </div>
     </div>
+
+    <script>
+        function showSupportMessage() {
+            alert('Thank you for your support! 🙏\n\nIn a real implementation, this would redirect to your preferred payment platform (PayPal, Stripe, etc.)');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>

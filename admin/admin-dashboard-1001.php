@@ -119,6 +119,9 @@ if (isset($_GET['page'])) {
         case 'samples':
             $content_file = 'admin_samples.php';
             break;
+        case 'dashboard':
+            $content_file = 'dashboard_content.php';
+            break;
         default:
             $content_file = 'dashboard_content.php';
     }
@@ -137,6 +140,7 @@ if (isset($_GET['page'])) {
     <link rel="stylesheet" href="../css/admin.css?v=9.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.cdnfonts.com/css/br-shape" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/anditya" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/bagel-fat-one" rel="stylesheet">
     <?php if (isset($_GET['page']) && $_GET['page'] == 'settings'): ?>
         <link rel="stylesheet" href="../css/settings.css?v=1.0">
@@ -145,11 +149,13 @@ if (isset($_GET['page'])) {
         <link rel="stylesheet" href="../css/feedback.css?v=6.0">
     <?php endif; ?>
     <?php if (isset($_GET['page']) && $_GET['page'] == 'samples'): ?>
-        <link rel="stylesheet" href="../css/admin_samples.css?v=3.0">
-        <script src="../js/admin_samples.js"></script>
+        <link rel="stylesheet" href="../css/admin_samples.css?v=8.0">
     <?php endif; ?>
         <?php if (isset($_GET['page']) && $_GET['page'] == 'orders'): ?>
-        <link rel="stylesheet" href="../css/orders_content.css?v=3.0">
+        <link rel="stylesheet" href="../css/orders_content.css?v=6.0">
+    <?php endif; ?>
+    <?php if (isset($_GET['page']) && $_GET['page'] == 'dashboard'): ?>
+       <link rel="stylesheet" href="../css/dashboard_content.css?v=100.0">
     <?php endif; ?>
 </head>
 <body>
@@ -176,7 +182,7 @@ if (isset($_GET['page'])) {
                     <span>Samples</span>
                 </a>
             </li>
-            <li class="sidebar-item">
+            <!-- <li class="sidebar-item">
                 <a href="?page=services" class="sidebar-link">
                     <span>Services</span>
                 </a>
@@ -185,15 +191,10 @@ if (isset($_GET['page'])) {
                 <a href="?page=products" class="sidebar-link">
                     <span>Products</span>
                 </a>
-            </li>
+            </li> -->
               <li class="sidebar-item">
-                <a href="admin-dashboard-1001.php?page=feedback" class="sidebar-link">
+                <a href="?page=feedback" class="sidebar-link">
                     <span>Feedback</span>
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="?page=linked_customers" class="sidebar-link">
-                    <span>Linked customers</span>
                 </a>
             </li>
             <li class="sidebar-item-divider"></li>

@@ -1,16 +1,19 @@
 :root {
-    --primary-color: #03bb00;
-    --primary-hover: #0056b3;
-    --danger-color: #dc3545;
-    --danger-hover: #c82333;
-    --warning-color: #ffde07;
-    --warning-hover: #e0a800;
-    --text-color: #333;
-    --background-color: #f8f9fa;
-    --card-background: #ffffff;
-    --border-color: #e0e0e0;
-    --shadow-light: rgba(0,0,0,0.08);
-}
+        --primary-color: #03bb00;
+        --primary-hover: #0056b3;
+        --danger-color: #dc3545;
+        --danger-hover: #c82333;
+        --warning-color: #ffde07;
+        --warning-hover: #e0a800;
+        --text-color: #333;
+        --background-color: #f8f9fa;
+        --card-background: #ffffff;
+        --border-color: #e0e0e0;
+        --shadow-light: rgba(0, 0, 0, 0.08);
+        --success-color: #28a745;
+        --success-hover: #218838;
+    }
+
 .container {
     max-width: 1200px; 
     margin: 30px auto;
@@ -148,6 +151,8 @@
 }
 
 .info-message {
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: #6c757d;
     font-size: 1.1rem;
@@ -264,3 +269,95 @@
     font-weight: 600;
     border-radius: 8px;
 }
+ #add-sample-form-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        padding: 0 20px;
+        background: linear-gradient(to right, #80ffb5, rgb(255, 242, 188));
+        box-shadow: 0 6px 20px var(--shadow-light);
+        border-radius: 12px;
+        margin-top: 20px;
+    }
+
+    #add-sample-form-container.visible {
+        max-height: 1500px;
+        padding: 30px;
+    }
+
+    .modal-title {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+    }
+
+    #sample-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #sample-form label {
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: -5px;
+    }
+
+    #sample-form input[type="file"],
+    #sample-form textarea,
+    #sample-form select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+
+    #sample-form textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .preview-area {
+        margin: 10px 0 20px;
+        border: 2px dashed var(--border-color);
+        border-radius: 8px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #fcfcfc;
+    }
+
+    .preview-area img,
+    .preview-area video {
+        max-width: 100%;
+        max-height: 250px;
+        border-radius: 5px;
+        object-fit: contain;
+    }
+
+    .preview-area p {
+        color: #888;
+        font-style: italic;
+    }
+
+    #form-submit-btn {
+        margin-top: 25px;
+        background-color: var(--success-color);
+        color: white;
+        font-size: 1.1rem;
+        padding: 12px;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    #form-submit-btn:hover {
+        background-color: var(--success-hover);
+        transform: translateY(-2px);
+    }
